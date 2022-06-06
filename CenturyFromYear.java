@@ -1,7 +1,11 @@
 public class CenturyFromYear {
   public static int century(int number) {
     // got a working solution will have to go back and optimize 
-    if (number <= 100) {
+   // Went from 90 lines of code at the bottom down to just 1  the line below
+    return (number + 99) / 100;
+   
+   
+   /*if (number <= 100) {
       return 1;
       }
     else if ((number >= 101) && (number <= 200)) {
@@ -93,7 +97,7 @@ public class CenturyFromYear {
       }
     else {
       return (number / 100) + 1;
-    }
+    }   */
     
-    }
+    }  
 }
