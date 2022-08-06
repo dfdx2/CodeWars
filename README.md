@@ -6,5 +6,5 @@ five challenges a week.
 
 You can find my profile here https://www.codewars.com/users/davisdf
 
-The purpose of this repository is to help keep myself publicly accountable
+The purpose of this repository is to help keep me publicly accountable
 for completing this task.
