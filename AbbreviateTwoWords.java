@@ -1,3 +1,7 @@
+/*  
+Return the first letter from each name of one string
+*/
+
 public class AbbreviateTwoWords {
   
   public static String abbrevName(String name) {
