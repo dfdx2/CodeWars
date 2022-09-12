@@ -1,6 +1,7 @@
 /*  
 
 Return the sum of 2 bytes
+converted the return type to byte to pass the kata
 
 */
 
