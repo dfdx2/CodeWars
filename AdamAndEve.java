@@ -1,5 +1,7 @@
 /*   8 KYU  Basic Subclasses  - Adam And Eve
 
+This kata is helpful with method creation for classes in Java.
+
 According to the creation myths of the Abrahamic religions, 
 Adam and Eve were the first Humans to wander the Earth.
 You have to do God's job. The creation method must return an 
