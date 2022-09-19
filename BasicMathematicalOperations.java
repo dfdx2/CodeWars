@@ -1,3 +1,8 @@
+/*
+This Kata goes over the basic math operations of 
+addition, substraction, multiplication and division.
+
+*/
 public class BasicOperations
 {
   public static Integer basicMath(String op, int v1, int v2)
