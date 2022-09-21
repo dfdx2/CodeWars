@@ -4,6 +4,9 @@ Clock shows h hours, m minutes and s seconds after midnight.
 
 Your task is to write a function which returns the time since 
 midnight in milliseconds.
+Hour = minutes * 60
+Minutes = seconds * 60
+Seconds = 1
 
 Example:
 h = 0
