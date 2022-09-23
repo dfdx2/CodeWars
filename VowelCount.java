@@ -9,28 +9,28 @@ The input string will only consist of lower case letters and/or spaces.
 public class Vowels {
 
   public static int getCount(String str) {
-    int vowelsCount = 0;
-    for (int i = 0; i < str.length(); i++) {
-      if (str.charAt(i) == 'A' || str.charAt(i) == 'a') {
-        vowelsCount += 1;
+    int result = 0;
+    for (int i = 0; i <= str.length() - 1; i++) {
+      if (str.charAt(i) == 'a') {
+        result = result + 1;
       }
-      else if (str.charAt(i) == 'E' || str.charAt(i) == 'e') {
-        vowelsCount += 1;
+      else if (str.charAt(i) == 'e') {
+        result = result + 1;
       }
-      else if (str.charAt(i) == 'I' || str.charAt(i) == 'i') {
-        vowelsCount += 1;
+      else if (str.charAt(i) == 'i') {
+        result = result + 1;
       }
-      else if (str.charAt(i) == 'O' || str.charAt(i) == 'o') {
-        vowelsCount += 1;
+      else if (str.charAt(i) == 'o') {
+        result = result + 1;
       }
-      else if (str.charAt(i) == 'U' || str.charAt(i) == 'u') {
-        vowelsCount += 1;
+      else if (str.charAt(i) == 'u') {
+        result = result + 1;
       }
       else {
-        vowelsCount += 0;
+        result = result + 0;
       }
     }
-    return vowelsCount;
+    return result;
   }
 
 }
