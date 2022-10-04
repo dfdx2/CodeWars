@@ -16,13 +16,12 @@ summation(8) -> 36
 public class GrassHopper {
 
     public static int summation(int n) {
-      int sum = 0;
-      for (int i = 0; i <= n; i++) {
-        sum += i;
-        
+      int result = 0;
+      for (int i = n; i > 0; i--) {
+        result += i;
       }
 
-        return sum;
+        return result;
     }
 }
 /*------------------------------------------------------------------------------
