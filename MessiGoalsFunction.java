@@ -2,7 +2,7 @@
 
 Messi goals function
 Messi is a soccer player with goals in three leagues:
-
+Easy Challenge
 LaLiga
 Copa del Rey
 Champions
