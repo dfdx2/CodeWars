@@ -25,3 +25,46 @@ public class Solution {
     return sum;
   }
 }
+/*--------------------------------------------------------------
+public class Solution {
+
+  public int solution(int number) {
+    int sum=0;
+    
+    for (int i=0; i < number; i++){
+      if (i%3==0 || i%5==0){sum+=i;}
+    }
+    return sum;
+  }
+}
+------------------------------------------------------------------
+import java.util.stream.IntStream;
+
+public class Solution {
+  public int solution(int number) {
+    return IntStream.range(0, number)
+                    .filter(n -> (n % 3 == 0) || (n % 5 == 0))
+                    .sum();
+  }
+}
+-----------------------------------------------------------------
+import java.lang.Math;
+public class Solution {
+  public int solution(int n) {
+    int a = (int) Math.ceil(n/3d) - 1;
+    int b = (int) Math.ceil(n/5d) - 1;
+    int c = (int) Math.ceil(n/15d) - 1;
+    return (3 * a * (a+1) + 5 * b * (b+1) - 15 * c * (c + 1)) / 2;
+  }
+}
+---------------------------------------------------------------------
+import java.util.stream.*;
+
+public class Solution {
+
+  public int solution(int number) {
+    return IntStream.range(3, number).filter(n -> n % 3 == 0 || n % 5 == 0).sum();
+  }
+}
+
+*/
