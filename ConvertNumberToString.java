@@ -11,7 +11,32 @@ Examples:
 class Kata {
   public static String numberToString(int num) {
     // Return a string of the number here!
+    return String.valueOf(num);
+  }
+}
+
+/* ------------------------------------------------------------- 
+Old version
+
+class Kata {
+  public static String numberToString(int num) {
+    // Return a string of the number here!
     String n = String.valueOf(num);
     return n;
   }
 }
+----------------------------------------------------------------
+class Kata {
+  public static String numberToString(int num) {
+    return ""+num;
+  }
+}
+--------------------------------------------------------------------
+class Kata {
+   returns the string representation of integer given 
+  public static String numberToString(int num) {
+    return Integer.toString(num);  
+}
+}
+---------------------------------------------------------------------
+*/
