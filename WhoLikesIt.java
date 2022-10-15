@@ -17,16 +17,18 @@ Note: For 4 or more names, the number in "and 2 others" simply increases.
 */
 
 class Solution {
-    public static String whoLikesIt(String... names) {
-      int l = names.length;
-      switch (l) {
-          case 0: return "no one likes this";
-          case 1: return String.format("%s likes this", names[0]);
-          case 2: return String.format("%s and %s like this", names[0], names[1]);
-          case 3: return String.format("%s, %s and %s like this", names[0], names[1], names[2]);
-          default: return String.format("%s, %s and %d others like this", names[0], names[1], l - 2);
-      }
-   }
+  public static String whoLikesIt(String... names) {
+      
+    int size = names.length;
+    switch (size) {
+        case 0: return "no one likes this";
+        case 1: return String.format("%s likes this", names[0]);
+        case 2: return String.format("%s and %s like this", names[0], names[1]);
+        case 3: return String.format("%s, %s and %s like this", names[0], names[1], names[2]);
+        default: return String.format("%s, %s and %d others like this", names[0], names[1], size - 2);
+    }
+      
+  }
 }
 
 /*------------------------------------------------------------------------------
