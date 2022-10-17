@@ -1,4 +1,4 @@
-/*  CodeWars 7KYU  You're a square! 
+/*  7KYU CodeWars You're a square! 
 
 A square of squares
 You like building blocks. You especially like building blocks 
@@ -57,6 +57,18 @@ public class Square {
     }
 }
 -----------------------------------------------------------------
-
+public class Square {    
+    public static boolean isSquare(int n) {        
+        return Math.sqrt(n) == (int)Math.sqrt(n)? true:false;
+    }
+}
+-----------------------------------------------------------------
+public class Square {    
+    public static boolean isSquare(int n) {        
+        if (n < 0) return false;
+        int sqrt = (int) Math.sqrt(n);
+        return sqrt*sqrt ==  n;
+    }
+}
 
 */
