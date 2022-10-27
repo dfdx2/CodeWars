@@ -45,6 +45,23 @@ public class Solution {
 
 }
 ---------------------------------------------------------------------------
+import java.util.Arrays;
+public class Solution {
+
+    public static boolean check(Object[] a, Object x) {
+        return Arrays.stream(a)
+        .anyMatch(i -> x.equals(i));
+    }
+
+}
+----------------------------------------------------------------------
+import static java.util.List.of;
+
+interface Solution {
+  static boolean check(Object[] a, Object x) {
+    return of(a).contains(x);
+  }
+}
 
 
 */
