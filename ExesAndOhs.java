@@ -13,7 +13,32 @@ XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
 XO("zzoo") => false
 
 */
+public class XO {
+  
+  public static boolean getXO (String str) {
+    int y = 0;
+    int z = 0;
+    for (int i = 0; i < str.length(); i++) {
+      if (str.charAt(i) == 'x' || str.charAt(i) == 'X') {
+        y += 1;
+      }
+      else if (str.charAt(i) == 'o' || str.charAt(i) == 'O') {
+        z += 1;
+      }
+      else {
+        y += 0;
+        z += 0;
+      }
+    }
+    return y == z;
+    
+  }
+}
 
+
+
+/*
+---------------------------------------------------------------
 public class XO {
   
   public static boolean getXO (String str) {
@@ -34,7 +59,7 @@ public class XO {
 }
 
 
-/*-----------------------------------------------------------------------
+-----------------------------------------------------------------------
 
 public class XO {
   
