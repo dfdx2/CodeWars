@@ -14,7 +14,20 @@ Return Values
 For Python: return True or False
 
 */
+import java.util.Arrays;
 
+public class PythagoreanTriple {
+	
+	public int pythagoreanTriple(int[] triple){
+		int a = triple[0] * triple[0];
+    int b = triple[1] * triple[1];
+    int c = triple[2] * triple[2];
+    return (a + b == c) ? 1 : 0;    
+	}
+}
+
+
+/*--------------------------------------------------------------
 public class PythagoreanTriple {
 	
 	public int pythagoreanTriple(int[] triple){
@@ -28,7 +41,7 @@ public class PythagoreanTriple {
       return 0;
   }
 }
-/*---------------------------------------------------------------
+---------------------------------------------------------------
  public class PythagoreanTriple {
     public int pythagoreanTriple(int[] triple){
         return triple[0] * triple[0] + triple[1] * triple[1] == triple[2] * triple[2] ? 1 : 0;
