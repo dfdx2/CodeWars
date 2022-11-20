@@ -1,3 +1,21 @@
+/*  8KYU  CodeWars   Century From Year
+
+Introduction
+The first century spans from the year 1 up to and including 
+the year 100, the second century - from the year 101 up to 
+and including the year 200, etc.
+
+Task
+Given a year, return the century it is in.
+
+Examples
+1705 --> 18
+1900 --> 19
+1601 --> 17
+2000 --> 20
+
+*/
+
 public class CenturyFromYear {
   public static int century(int number) {
     // got a working solution will have to go back and optimize 
@@ -5,7 +23,8 @@ public class CenturyFromYear {
     return (number + 99) / 100;
    
    
-   /*if (number <= 100) {
+   /*---------------------------------------------------------------
+   if (number <= 100) {
       return 1;
       }
     else if ((number >= 101) && (number <= 200)) {
@@ -97,7 +116,33 @@ public class CenturyFromYear {
       }
     else {
       return (number / 100) + 1;
-    }   */
+    }   
     
     }  
 }
+------------------------------------------------------------------
+public class Solution {
+  public static int century(int number) {
+    return number % 100 == 0? number / 100 : (number / 100) + 1;
+  }
+}
+------------------------------------------------------------------
+import java.lang.Math;
+
+public class Solution {
+    public static int century(int number) {
+        return (int)Math.ceil((double)number/100);
+    }
+}
+-------------------------------------------------------------------
+public class Solution {
+  public static int century(int number) {
+    return (int)Math.ceil(number*0.01);
+  }
+}
+------------------------------------------------------------------
+
+
+
+*/
+
