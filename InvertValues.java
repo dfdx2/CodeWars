@@ -1,8 +1,38 @@
-public class InvertValues {
-  public static int[] invert(int[] input) {
-    for(int i = 0; i < input.length; i ++) {
-        input[i] = - input[i];
+/*  8KYU CodeWars  Invert Values
+
+Given a set of numbers, return the additive inverse of each. 
+Each positive becomes negatives, and the negatives become positives.
+
+invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
+invert([1,-2,3,-4,5]) == [-1,2,-3,4,-5]
+invert([]) == []
+
+*/
+
+public class Kata {
+  public static int[] invert(int[] array) {
+    for (int i = 0; i < array.length; i++) {
+      array[i] = - array[i];
     }
-    return input;
+    return array;
   }
 }
+/*-----------------------------------------------------------------
+public class Kata {
+  public static int[] invert(int[] array) {
+    return java.util.Arrays.stream(array).map(i -> -i).toArray();
+  }
+}
+-----------------------------------------------------------------
+public class Kata {
+  public static int[] invert(int[] array) {
+  
+  for(int i = 0; i < array.length; i++) {
+    array[i] *= -1;
+  }
+  
+  return array;
+  }
+}
+
+*/
