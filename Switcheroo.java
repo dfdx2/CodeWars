@@ -1,8 +1,8 @@
-/*   7KYU CodeWars  Switcheroo 
+/*  7KYU CodeWars  Switcheroo
 
-Given a string made up of letters a, b, and/or c, switch the position of 
-letters a and b (change a to b and vice versa). Leave any incidence of 
-c untouched.
+Given a string made up of letters a, b, and/or c, 
+switch the position of letters a and b (change a to b 
+and vice versa). Leave any incidence of c untouched.
 
 Example:
 
@@ -13,18 +13,14 @@ Example:
 
 public class Switch {
   public static String switcheroo(String x) {
-    String y = x
-                .replace("a", "e")
-                .replace("b", "f")
-                .replace("f", "a")
-                .replace("e", "b");
-    
-    return y;
+    x = x.replaceAll("a", "v");
+    x = x.replaceAll("b", "d");
+    x = x.replaceAll("v", "b");
+    x = x.replaceAll("d", "a");
+    return x;
   }
 }
-
-/*----------------------------------------------------------------------
-
+/*----------------------------------------------------------
 class Switch {
   
   public static String switcheroo(String x) {
@@ -32,8 +28,7 @@ class Switch {
   }
   
 }
--------------------------------------------------------------------------
-
+------------------------------------------------------------
 class Switch{
 
 public static String switcheroo(String x){
@@ -41,8 +36,15 @@ public static String switcheroo(String x){
   return x.replace("a", "x").replace("b", "a").replace("x", "b"); 
 }
 }
---------------------------------------------------------------------------
-
+--------------------------------------------------------------
+public class Switch {
+    public static String switcheroo(String x){
+        return x.replaceAll("a","x")
+                .replace("b","a")
+                .replace("x","b");
+    }
+}
+------------------------------------------------------------------
 public class Switch {
   public static String switcheroo(String x) {
     String result = "";
@@ -52,13 +54,5 @@ public class Switch {
     return result;
   }
 }
-------------------------------------------------------------------------
-
-
-
-
-
-
-
 
 */
