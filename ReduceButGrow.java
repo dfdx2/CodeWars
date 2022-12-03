@@ -17,3 +17,39 @@ public class Kata{
     return result;
   }
 }
+/*-----------------------------------------------------------------
+public class Kata{
+
+  public static int grow(int[] x){
+    int result = 1;
+    for (int a : x) {
+      result *= a;
+    }
+    return result;
+  }
+}
+-------------------------------------------------------------------
+import java.util.stream.IntStream;
+
+public class Kata{
+
+  public static int grow(int[] x){
+
+    return IntStream.of(x).reduce(1, (a, b) -> a * b);
+  
+  }
+
+}
+-------------------------------------------------------------------
+import java.util.*;
+
+public class Kata{
+
+  public static int grow(int[] x){
+    return Arrays.stream(x).reduce(1 ,(a, b) -> a * b);
+  }
+
+}
+
+
+*/
