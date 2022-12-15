@@ -14,7 +14,20 @@ For calculating the average point you may add your point to the given array!
 
 
 */
+public class Kata {
+  public static boolean betterThanAverage(int[] classPoints, int yourPoints) {
+    // Your code here
+    int result = 0;
+    for (int i = 0; i < classPoints.length; i++) {
+      result = result + classPoints[i];
+    }
+    result = result / classPoints.length;
+    return result < yourPoints;
+  }
+}
 
+
+/*------------------------------------------------------------------
 public class Kata {
   public static boolean betterThanAverage(int[] classPoints, int yourPoints) {
     // Your code here
@@ -29,7 +42,7 @@ public class Kata {
   }
   
 }
-/*----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
 
 import java.util.Arrays;
 
