@@ -5,12 +5,22 @@ You know that there are 'n' classmates and the paperwork has 'm' pages.
 Your task is to calculate how many blank pages do you need. If n < 0 or m < 0 return 0.
 
 Example:
-n = 5, m = 5: return 25
-n = -5, m = 5: return 0
+n= 5, m=5: 25
+n=-5, m=5:  0
 Waiting for translations and Feedback! Thanks!
 
 */
+public class Paper
+{
+  public static int paperWork(int n, int m) 
+  {
+    
+    return (m < 0 || n < 0) ? 0 : m * n;
+  }
+}
 
+
+/*-----------------------------------------------------------------
 public class Paper
 {
   public static int paperWork(int n, int m) 
@@ -23,7 +33,7 @@ public class Paper
     }
   }
 }
-/* 
+------------------------------------------------------------------- 
 public class Paper
 {
   public static int paperWork(int n, int m) 
