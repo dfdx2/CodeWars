@@ -21,8 +21,19 @@ Have fun!
 
 public class Codewars {
   public static String oddOrEven (int[] array) {
+    int result = 0;
+    for (int i = 0; i < array.length; i++) {
+      result += array[i];
+    }
+    return result % 2 == 0 ? "even" : "odd";
+  }
+}
+/*---------------------------------------------------------------
+
+public class Codewars {
+  public static String oddOrEven (int[] array) {
   // your code
-    int sum = 0;
+  int sum = 0;
     for (int i = 0; i < array.length; i++) {
       sum += array[i];
     }
@@ -34,7 +45,7 @@ public class Codewars {
     }
   }
 }
-/* -----------------------------------------------------------------------
+ -----------------------------------------------------------------------
 import static java.util.Arrays.stream;
 
 class Codewars {
