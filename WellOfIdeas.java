@@ -9,7 +9,43 @@ ideas, return 'Publish!', if there are more than 2 return
 the case, return 'Fail!'.
 
 */
+public class Kata {
 
+  public static String well(String[] x) {
+    // TODO
+    String y = "Publish!";
+    String w = "I smell a series!";
+    String z = "Fail!";
+    int result = 0;
+    int bad = 0;
+    for (int i = 0; i < x.length; i++) {
+      if (x[i] == "bad") {
+        bad += 1;
+      }
+      else if (x[i] == "good") {
+        result += 1;
+      }
+      else {
+        result += 0;
+      }
+    }
+    if (result == 1 || result == 2) {
+      return y;
+    }
+    else if (result > 2) {
+      return w;
+    }
+    else {
+      return z;
+    }
+  }
+
+
+
+
+
+
+/*---------------------------------------------------------------------
 public class Kata {
 
   public static String well(String[] x) {
@@ -33,7 +69,7 @@ public class Kata {
   }
 
 }
-/*-----------------------------------------------------------------------
+-----------------------------------------------------------------------
 public class Kata {
 
   public static String well(String[] x) {
