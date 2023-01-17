@@ -21,16 +21,31 @@ s="aaaxbbbbyyhwawiwjjjwwm"
 printer_error(s) => "8/22"
 
 */
-
-
-
+public class Printer {
+    
+  public static String printerError(String s) {
+      // your code
+    s = s.replaceAll("[^a-m]", "z");
+    int count = 0;
+    for (int i = 0; i < s.length(); i++) {
+      if (s.charAt(i) == 'z') {
+        count += 1;
+      }
+      else {
+        count += 0;
+      }
+    }
+    return count + "/" + s.length();
+  }
+}
+/*---------------------------------------------------------------------
 public class Printer {
     
     public static String printerError(String s) {
         return s.replaceAll("[a-m]", "").length() + "/" + s.length();
     }
 }
-/*
+
 ----------------------------------------------------------------------------------------
 public class Printer {
     
