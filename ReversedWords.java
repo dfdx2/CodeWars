@@ -1,7 +1,10 @@
-/* 8KYU CodeWars  Reversed Words
+/*  8KYU CodeWars  Reversed Words
 
 Complete the solution so that it reverses all of the words 
 within the string passed in.
+
+Words are separated by exactly one space and there are no 
+leading or trailing spaces.
 
 Example(Input --> Output):
 
@@ -10,26 +13,26 @@ Example(Input --> Output):
 
 */
 
-import java.util.regex.Pattern;
 public class ReverseWords{
 
  public static String reverseWords(String str){
      //write your code here...
-   Pattern pattern = Pattern.compile("\\s");
-   String[] temp = pattern.split(str);
-   String result = "";
-   for (int i = 0; i < temp.length; i++) {
-     if (i == temp.length - 1) {
-       result = temp[i] + result;
+   String[] x = str.split("\\s");
+   String backwards = "";
+   for (int i = 0; i < x.length; i++) {
+     if (i == x.length - 1) {
+       backwards = x[i] + backwards;
      }
      else {
-       result = " " + temp[i] + result;
+       backwards = " " + x[i] + backwards;
      }
    }
-   return result;
+   return backwards;
  }
 }
-/*----------------------------------------------------------------- 
+
+/*----------------------------------------------------------
+
 import java.util.*;
 
 public class ReverseWords{
@@ -41,8 +44,7 @@ public class ReverseWords{
      return String.join(" ", Words);
  }
 }
----------------------------------------------------------------------
-
+--------------------------------------------------------------
 import java.util.*;
 
 public class ReverseWords {
@@ -53,8 +55,7 @@ public class ReverseWords {
     return String.join(" ", words);
   }
 }
----------------------------------------------------------------------
-
+--------------------------------------------------------------
 public class ReverseWords{
 
  public static String reverseWords(String str){
@@ -67,8 +68,7 @@ public class ReverseWords{
      return fin;
  }
 }
-----------------------------------------------------------------------
-
+---------------------------------------------------------------
 import java.util.Arrays;
 
 public class ReverseWords{
@@ -76,19 +76,34 @@ public class ReverseWords{
      return Arrays.stream(str.split(" ")).reduce((x, y) -> y+" "+x).get();
  }
 }
------------------------------------------------------------------------
+----------------------------------------------------------------
+import org.apache.commons.lang3.StringUtils;
 
 public class ReverseWords{
 
  public static String reverseWords(String str){
-     String[] s = str.split(" ");
-        StringBuilder sb = new StringBuilder();
-        for (int i = s.length-1; i >=0; i--) {
-            sb.append(s[i] + " ");
-        }
-        return sb.toString().trim();
-    }
+   return StringUtils.reverseDelimited(str, ' '); // Use StringUtils to revers based on space character
  }
- --------------------------------------------------------------------------
- 
+}
+------------------------------------------------------------------
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class ReverseWords {
+
+  private static final String WORD_SEPARATOR = " ";
+
+  public static String reverseWords(String sentence){
+    List<String> words = Arrays.asList(sentence.split(WORD_SEPARATOR));
+    Collections.reverse(words);
+    return String.join(WORD_SEPARATOR, words);
+  }
+}
+
+
+
+
+
 */
