@@ -1,7 +1,7 @@
-/* 8KYU CodeWars Sum of Differences in Array
+/* 8KYU CodeWars Sum Of Differences In Array
 
-Your task is to sum the differences between consecutive pairs 
-in the array in descending order.
+Your task is to sum the differences between consecutive pairs in the array 
+in descending order.
 
 Example
 [2, 1, 10]  -->  9
@@ -9,42 +9,36 @@ In descending order: [10, 2, 1]
 
 Sum: (10 - 2) + (2 - 1) = 8 + 1 = 9
 
-If the array is empty or the array has only one element the result 
-should be 0 (Nothing in Haskell, None in Rust).
+If the array is empty or the array has only one element the result should 
+be 0 (Nothing in Haskell, None in Rust).
 
 */
 
 import java.util.Arrays;
 public class ZywOo {
   public static int sumOfDifferences(int[] arr) {
-    //your code;
-    Arrays.sort(arr);
+    //your code
     int result = 0;
-    for (int i = 1; i < arr.length; ++i) {
-      if (arr.length < 1) {
-        result = 0;
-      }
-      else {
-      result += arr[i] - arr[i - 1];
-        }
-      
+    if (arr.length <= 1) {
+      result = 0;
     }
-      return result;
+    Arrays.sort(arr);
+    for (int i = arr.length - 1; i > 0; i--) {
+      result += (arr[i] - arr[i - 1]);
+    }
+    return result;
   }
 }
-
-/*--------------------------------------------------------------------
-
+/*--------------------------------------------------------------------------------
 import java.util.Arrays;
 
 public class ZywOo {
   public static int sumOfDifferences(int[] arr) {
     Arrays.sort(arr);
-    return arr.length <= 1 ? 0 : arr[arr.length-1] - arr[0];
+		return arr.length <= 1 ? 0 : arr[arr.length-1] - arr[0];
   }
 }
--------------------------------------------------------------------------
-
+-------------------------------------------------------------------------------
 import java.util.*;
 
 public class ZywOo {
@@ -53,8 +47,7 @@ public class ZywOo {
     return arr.length > 1 ? stat.getMax() - stat.getMin() : 0;
   }
 }
---------------------------------------------------------------------------
-
+-------------------------------------------------------------------------------
 import java.util.Comparator;
 import java.util.stream.IntStream;
 
@@ -70,8 +63,7 @@ public class ZywOo {
                    .sum();
   }
 }
----------------------------------------------------------------------------------
-
+---------------------------------------------------------------------------
 public class ZywOo {
   public static int sumOfDifferences(int[] arr) {
     if(arr.length < 2) return 0;
@@ -87,14 +79,33 @@ public class ZywOo {
     return max - min;
   }
 }
--------------------------------------------------------------------------------------
-
+----------------------------------------------------------------------
 public class ZywOo {
   public static int sumOfDifferences(int[] arr) {
     if (arr.length < 2) return 0;
     int max = arr[0], min = max;
     for (int a : arr) if (a > max) max = a; else if (a < min) min = a;
     return max - min;
+  }
+}
+------------------------------------------------------------------
+import java.util.*; 
+import java.util.stream.*;
+
+public class ZywOo {
+  public static int sumOfDifferences(int[] arr) {
+    return arr.length > 1 
+      ? Arrays.stream(arr).max().getAsInt() - Arrays.stream(arr).min().getAsInt() 
+      : 0;
+  }
+}
+----------------------------------------------------------------------------------
+import java.util.Arrays;
+
+class ZywOo {
+  static int sumOfDifferences(int[] arr) {
+    var stat = Arrays.stream(arr).summaryStatistics();
+    return arr.length > 1 ? stat.getMax() - stat.getMin() : 0;
   }
 }
 
