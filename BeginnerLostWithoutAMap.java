@@ -1,7 +1,7 @@
 /*   8KYU  Beginner Lost Without A Map
+
 Given an array of integers, return a new array with each value doubled.
-Each item in the array return its double and try to do it in place instead
-of creating a new array.
+
 For example:
 
 [1, 2, 3] --> [2, 4, 6]
@@ -17,7 +17,6 @@ public class Maps {
     return arr;
   }
 }
-
 /*-------------------------------------------------------------------------
 import java.util.*;
 public class Maps {
