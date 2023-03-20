@@ -25,6 +25,16 @@ n and k will always be >=1.
 
 */
 
+public class JosephusSurvivor {
+  public static int josephusSurvivor(final int n, final int k) {
+    int alive = 0;
+    for (int i = 2; i <= n; i++) {
+      alive = (alive + k) % i;
+    }
+    return alive + 1;
+  }  
+}
+/*----------------------------------------------------------------------------
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -41,7 +51,7 @@ public class JosephusSurvivor {
         return people.get(0);
     }
 }
-/* ------------------------------------------------------------------------------------
+ ------------------------------------------------------------------------------------
 import java.util.Arrays;
 
 public class JosephusSurvivor {
