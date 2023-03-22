@@ -81,3 +81,174 @@ public class Operarray {
         return result;
     }
 }
+/*-------------------------------------------------------------------
+import static java.lang.Math.abs;
+
+import java.util.function.BiFunction;
+
+public class Operarray {
+    public static long gcdi(long x, long y) {
+        return abs(y) == 0 ? abs(x) : gcdi(abs(y), abs(x) % abs(y));
+    }
+    public static long lcmu(long a, long b) {
+        return abs(a) * abs(b) / gcdi(abs(a), abs(b));
+    }
+    public static long som(long a, long b) {
+        return a + b;
+    }
+    public static long maxi(long a, long b) {
+        return a > b ? a : b;
+    }
+    public static long mini(long a, long b) {
+        return a < b ? a : b;
+    }
+    public static long[] operArray(BiFunction<Long, Long, Long> operator, long[] arr, long init) {
+        long[] result = new long[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            result[i] = operator.apply(i - 1 < 0 ? init : result[i - 1], arr[i]);
+        }
+        return result;
+    }
+}
+----------------------------------------------------------------------------------
+import static java.math.BigInteger.valueOf;
+import static java.util.stream.LongStream.of;
+
+import java.util.function.LongBinaryOperator;
+
+class Operarray {
+  static long gcdi(long x, long y) {
+    return valueOf(x).gcd(valueOf(y)).longValue();
+  }
+
+  static long lcmu(long a, long b) {
+    return Math.abs(b / gcdi(a, b) * a);
+  }
+
+  static long som(long a, long b) {
+    return a + b;
+  }
+
+  static long maxi(long a, long b) {
+    return Math.max(a, b);
+  }
+
+  static long mini(long a, long b) {
+    return Math.min(a, b);
+  }
+
+  static long[] operArray(LongBinaryOperator operator, long[] arr, long init) {
+    var previous = new long[] {init};
+    return of(arr).map(l -> previous[0] = operator.applyAsLong(previous[0], l)).toArray();
+  }
+}
+-----------------------------------------------------------------------------
+import java.util.function.*;
+import java.math.BigInteger;
+
+public class Operarray {
+    public static long gcdi(long x, long y) {
+        return BigInteger.valueOf(x).gcd(BigInteger.valueOf(y)).longValue();
+    }
+    public static long lcmu(long a, long b) {
+        return Math.abs(a * b / gcdi(a,b));
+    }
+    public static long som(long a, long b) {
+        return a + b;
+    }
+    public static long maxi(long a, long b) {
+        return Math.max(a,b);
+    }
+    public static long mini(long a, long b) {
+        return Math.min(a,b);
+    }
+    public static long[] operArray(BiFunction<Long,Long,Long> operator, long[] arr, long init) {
+        long[] res = arr.clone();
+        res[0] = operator.apply(res[0],init);
+        for (int i = 1; i < res.length; i++)
+            res[i] = operator.apply(res[i],res[i-1]);
+        return res;
+    }
+
+}
+----------------------------------------------------------------------------
+
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.BinaryOperator;
+import java.util.stream.Collector;
+import java.util.stream.LongStream;
+
+public class Operarray {
+    public static long gcdi(long a, long b) {
+        return BigInteger.valueOf(Math.abs(a))
+                .gcd(BigInteger.valueOf(Math.abs(b)))
+                .longValue();
+    }
+
+    public static long lcmu(long a, long b) {
+        long max, min, x, lcm = 1;
+        max = Math.max(Math.abs(a), Math.abs(b));
+        min = Math.min(Math.abs(a), Math.abs(b));
+        for (int i = 1; i <= min; i++) {
+            x = max * i;
+            if (x % min == 0) {
+                lcm = x;
+                break;
+            }
+        }
+        return lcm;
+    }
+
+    public static long som(long a, long b) {
+        return a + b;
+    }
+
+    public static long maxi(long a, long b) {
+        return Math.max(a, b);
+    }
+
+    public static long mini(long a, long b) {
+        return Math.min(a, b);
+    }
+
+    public static long[] operArray(BinaryOperator<Long> operator, long[] arr, long init) {
+
+        return LongStream.of(arr).boxed().collect(PairCollector.collector(operator, init));
+    }
+
+    private static final class PairCollector {
+        private List<Long> res = new ArrayList<>();
+
+        private Long curr;
+        private BinaryOperator<Long> operator;
+
+        private PairCollector(BinaryOperator<Long> operator, Long first) {
+            this.curr = first;
+            this.operator = operator;
+        }
+
+        public static Collector<Long, ?, long[]> collector(BinaryOperator<Long> operator, Long first) {
+            return Collector.of(() -> new PairCollector(operator, first), PairCollector::accept, PairCollector::combine, PairCollector::finish);
+        }
+
+        private void accept(Long value) {
+            curr = operator.apply(curr, value);
+            res.add(curr);
+        }
+
+        private PairCollector combine(PairCollector other) {
+            throw new UnsupportedOperationException("Parallel Stream not supported");
+        }
+
+        private long[] finish() {
+            return res.stream().mapToLong(i -> i).toArray();
+        }
+    }
+}
+
+
+
+
+*/
