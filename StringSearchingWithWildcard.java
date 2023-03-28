@@ -1,4 +1,5 @@
-/*  6KYU  CodeWars   String Searching With Wildcard
+/* 6KYU  CodeWars   String Searching With Wildcard
+
 The method below, is the most simple string search algorithm. 
 It will find the first occurrence of a word in a text string.
 haystack = the whole text
