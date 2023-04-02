@@ -16,6 +16,22 @@ Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
 
 Note that the Java version expects a return value of null for an empty string or null.
 */
+public class JadenCase {
+
+	public String toJadenCase(String phrase) {
+    if ((phrase == null) || phrase == "") {
+      return null;
+    }		
+		char[] result = phrase.toCharArray();
+    for (int i = 0; i < result.length; i++) {
+      if (i == 0 || result[i - 1] == ' ') {
+        result[i] = Character.toUpperCase(result[i]);
+      }
+    }
+    return new String(result);
+	}
+}
+/*----------------------------------------------------------------------
 
 public class JadenCase {
 
@@ -35,3 +51,86 @@ public class JadenCase {
 	}
 
 }
+-----------------------------------------------------------------------------
+import java.lang.Character;
+
+public class JadenCase {
+
+	public String toJadenCase(String phrase) {
+    if(phrase == null || phrase.equals("")) return null;
+    
+    char[] array = phrase.toCharArray();
+    
+    for(int x = 0; x < array.length; x++) {
+      if(x == 0 || array[x-1] == ' ') {
+        array[x] = Character.toUpperCase(array[x]);
+      }
+    }
+		
+		return new String(array);
+	}
+
+}
+--------------------------------------------------------------------------
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
+public class JadenCase {
+
+	public String toJadenCase(String phrase) {
+      if (null == phrase || phrase.length() == 0) {
+          return null;
+      }
+
+      return Arrays.stream(phrase.split(" "))
+                   .map(i -> i.substring(0, 1).toUpperCase() + i.substring(1, i.length()))
+                   .collect(Collectors.joining(" "));
+	}
+
+}
+---------------------------------------------------------------------------
+import java.util.stream.Collectors;
+import java.util.stream.Collector;
+import java.util.Arrays;
+
+public class JadenCase {
+	public static final Collector<CharSequence,?,String> JOIN_WITH_SPACE = Collectors.joining(" ");
+
+	public String toJadenCase(String phrase) {
+  	if (phraseIsEmpty(phrase)) { return null; }
+    
+    return Arrays.stream(splitIntoWords(phrase)).map(this::capitalize).collect(JOIN_WITH_SPACE);
+	}
+
+	private String[] splitIntoWords(String phrase) {
+	  return phrase.split(" ");
+  }
+  
+	private String capitalize(String word) {
+  	return word.substring(0, 1).toUpperCase() + word.substring(1);
+  }
+  
+	private boolean phraseIsEmpty(String phrase) {
+    return phrase == "" || phrase == null;
+  }
+}
+----------------------------------------------------------------------------
+import org.apache.commons.lang3.text.WordUtils;
+public class JadenCase {
+
+	public String toJadenCase(String phrase) {
+		// TODO put your code below this comment
+		if(phrase == ""){
+      return null;
+    }
+    else{
+		  return WordUtils.capitalize(phrase);
+    }
+  }
+}
+
+
+
+
+
+*/
