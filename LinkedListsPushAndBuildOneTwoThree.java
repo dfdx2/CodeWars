@@ -42,3 +42,55 @@ class BuildOneTwoThree {
     return start; 
   }
 }
+/*-------------------------------------------------------------------------
+class Node {
+
+  int data;
+  Node next = null;
+  
+  Node(final int data) {
+    this.data = data;
+  }
+  
+  public static Node push(final Node head, final int data) {
+    Node node = new Node(data);
+    node.next = head;
+    return node;    
+  }
+  
+  public static Node buildOneTwoThree() {
+    Node chained = null;
+    chained = push(chained, 3);
+    chained = push(chained, 2);
+    chained = push(chained, 1);
+    return chained;
+  }
+}
+-------------------------------------------------------------------------------
+class Node {
+  int data;
+  Node next;
+
+  Node(int data) {
+    this(null, data);
+  }
+
+  Node(Node child, int data) {
+    this.next = child;
+    this.data = data;
+  }
+
+  static Node push(Node head, int data) {
+    return new Node(head, data);
+  }
+
+  static Node buildOneTwoThree() {
+    return new Node(new Node(new Node(3), 2), 1);
+  }
+}
+
+
+
+
+
+*/
