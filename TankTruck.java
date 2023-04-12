@@ -1,4 +1,5 @@
-/*
+/* 6KYU CodeWars Tank Truck
+
 To introduce the problem think to my neighbor who drives a tanker truck. 
 The level indicator is down and he is worried because he does not know 
 if he will be able to make deliveries. We put the truck on a horizontal 
