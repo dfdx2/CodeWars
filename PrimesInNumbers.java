@@ -31,3 +31,50 @@ public class PrimeDecomp {
         return builder.toString();
     }
 }
+/*------------------------------------------------------------------------------
+public class PrimeDecomp {
+   
+    public static String factors(int n) {
+        String result = "";
+        int cur = n;
+        for(int i = 2; i<=cur; i++){
+            int ct = 0;
+            while(cur%i == 0){
+              ct += 1;
+              cur = cur/i;
+            }
+            if(ct == 1)
+                result  = result + "(" + i + ")";
+            else if(ct > 1)
+                result  = result + "(" + i + "**" + ct + ")";
+        }
+        return result;
+    }
+       
+}
+------------------------------------------------------------------------------
+import java.util.*;
+public class PrimeDecomp {
+  public static String factors(int n) {
+    final StringBuilder fs = new StringBuilder();
+    for (int i = 2; i <= n; i++) {
+      int cnt = 0;
+      while (n % i == 0) {
+        cnt++;
+        n /= i;
+      }
+      if (cnt > 1) {
+        fs.append(String.format("(%d**%d)", i, cnt));
+      } else if (cnt == 1) {
+        fs.append(String.format("(%d)", i));
+      }
+    }
+    return fs.length() == 0 ? String.format("(%d)", n) : fs.toString();
+  }
+}
+
+
+
+
+
+*/
