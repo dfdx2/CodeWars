@@ -41,6 +41,34 @@ The given list is immutable, i.e. you cannot modify the list
 Good luck and have fun.
 */
 
+public class BallotsCounter {
+
+  public static String getWinner(final List<String> listOfBallots) {
+    //Your code
+    Map<String, Integer> result = new HashMap<>();
+    int leader = 0;
+    String y = null;
+    for (String x : listOfBallots) {
+      if (result.containsKey(x)) {
+        result.put(x, result.get(x) + 1);
+      }
+      else {
+        result.put(x, 1);
+      }
+    }
+    for (Map.Entry<String, Integer> entry : result.entrySet()) {
+      if (entry.getValue() > leader) {
+        y = entry.getKey();
+        leader = entry.getValue();
+      }
+    }
+    return leader > listOfBallots.size() / 2 ? y : null;
+  }
+}
+
+
+
+/*-------------------------------------------------------------------------
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -53,7 +81,7 @@ public class BallotsCounter {
                 .map(Map.Entry::getKey).findFirst().orElse(null);         
     }
 }
-/*
+
 ____________________________________________________________________________________________
 
 import java.util.List;
