@@ -1,25 +1,26 @@
-/*     6KYU Statistics for an Athletic Association
+/* 6KYU CodeWars Statistics for an Athletic Association
 
 You are the "computer expert" of a local Athletic Association (C.A.A.). 
-Many teams of runners come to compete. Each time you get a string of 
-all race results of every team who has run. For example here is a string 
+Many teams of runners come to compete. Each time you get a string of all 
+race results of every team who has run. For example here is a string 
 showing the individual results of a team of 5 runners:
 
 "01|15|59, 1|47|6, 01|17|20, 1|32|34, 2|3|17"
 
-Each part of the string is of the form: h|m|s where h, m, s (h for hour, 
-m for minutes, s for seconds) are positive or null integer (represented 
-as strings) with one or two digits. Substrings in the input string are 
-separated by ,  or ,.
+Each part of the string is of the form: h|m|s where h, m, s (h for hour, m 
+for minutes, s for seconds) are positive or null integer (represented as 
+strings) 
+with one or two digits. Substrings in the input string are separated by ,  
+or ,.
 
-To compare the results of the teams you are asked for giving three 
-statistics; range, average and median.
+To compare the results of the teams you are asked for giving three statistics; 
+range, average and median.
 
-Range : difference between the lowest and highest values. In {4, 6, 9, 3, 7} 
-the lowest value is 3, and the highest is 9, so the range is 9 − 3 = 6.
+Range : difference between the lowest and highest values. In {4, 6, 9, 3, 7} the 
+lowest value is 3, and the highest is 9, so the range is 9 − 3 = 6.
 
-Mean or Average : To calculate mean, add together all of the numbers in a set 
-and then divide the sum by the total count of numbers.
+Mean or Average : To calculate mean, add together all of the numbers and then 
+divide the sum by the total count of numbers.
 
 Median : In statistics, the median is the number separating the higher half of 
 a data sample from the lower half. The median of a finite list of numbers can 
@@ -41,13 +42,13 @@ where hh, mm, ss are integers (represented by strings) with each 2 digits.
 Remarks:
 if a result in seconds is ab.xy... it will be given truncated as ab.
 if the given string is "" you will return ""
+
 */
 
-import java.time.Duration;
-import java.util.Collections;
-import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.List;
+import java.util.Collections;
+import java.time.Duration;
 
 public class Stat {
     public static String stat(String strg) {
@@ -55,14 +56,14 @@ public class Stat {
             return "";
         }
 
-        List<Long> results = Stream.of(strg.split(",")).map(Stat::toSeconds).sorted().collect(Collectors.toList());
-        long range = Collections.max(results) - Collections.min(results);
-        double average = results.stream().mapToLong(Long::longValue).average().getAsDouble();
-        double median = results.size() % 2 == 0 ?
-                results.stream().skip(results.size() / 2 - 1).limit(2).mapToLong(Long::longValue).average().getAsDouble() :
-                results.stream().mapToDouble(Long::doubleValue).skip(results.size() / 2).findFirst().getAsDouble();
+        List<Long> result = Stream.of(strg.split(",")).map(Stat::toSeconds).sorted().collect(Collectors.toList());
+        long bucket = Collections.max(result) - Collections.min(result);
+        double avg = result.stream().mapToLong(Long::longValue).average().getAsDouble();
+        double mid = result.size() % 2 == 0 ?
+                result.stream().skip(result.size() / 2 - 1).limit(2).mapToLong(Long::longValue).average().getAsDouble() :
+                result.stream().mapToDouble(Long::doubleValue).skip(result.size() / 2).findFirst().getAsDouble();
 
-        return String.format("Range: %1$s Average: %2$s Median: %3$s", formatSeconds(range), formatSeconds((long) average), formatSeconds((long) median));
+        return String.format("Range: %1$s Average: %2$s Median: %3$s", formatSeconds(bucket), formatSeconds((long) avg), formatSeconds((long) mid));
     }
 
     private static long toSeconds(String result) {
@@ -80,38 +81,37 @@ public class Stat {
         return String.format("%02d|%02d|%02d", hour, minute, second);
     }
 }
-/*-------------------------------------------------------------------------------------
-
+/*------------------------------------------------------------------------
 import java.util.*;
 public class Stat {
         
-  public static String stat(String strg) {  
-    List<Integer> stats = new ArrayList<Integer>();
-    int Mean = 0;
-    for(String time:strg.split(",")){
-      time = time.trim();
-      int t = Integer.parseInt(time.substring(0, time.indexOf('|')))*60*60 + 
-          Integer.parseInt(time.substring(time.indexOf('|')+1,time.lastIndexOf('|')))*60 +
-          Integer.parseInt(time.substring(time.lastIndexOf('|')+1));
-      Mean+=t;
-      stats.add(t);     
-    }
-    Collections.sort(stats);
-    int Range = Collections.max(stats) - Collections.min(stats);
-    Mean /= stats.size();
-    int Median = stats.size()%2 == 0? (stats.get((stats.size()/2)-1) + stats.get(stats.size()/2))/2 : stats.get((stats.size()/2));
-    
-    return String.format("Range: %02d|%02d|%02d Average: %02d|%02d|%02d Median: %02d|%02d|%02d",
-        Range/3600,(Range%3600)/60,Range%60,Mean/3600,(Mean%3600)/60,Mean%60,Median/3600,(Median%3600)/60,Median%60);
-  }
+	public static String stat(String strg) {  
+		List<Integer> stats = new ArrayList<Integer>();
+		int Mean = 0;
+		for(String time:strg.split(",")){
+			time = time.trim();
+			int t = Integer.parseInt(time.substring(0, time.indexOf('|')))*60*60 + 
+					Integer.parseInt(time.substring(time.indexOf('|')+1,time.lastIndexOf('|')))*60 +
+					Integer.parseInt(time.substring(time.lastIndexOf('|')+1));
+			Mean+=t;
+			stats.add(t);			
+		}
+		Collections.sort(stats);
+		int Range = Collections.max(stats) - Collections.min(stats);
+		Mean /= stats.size();
+		int Median = stats.size()%2 == 0? (stats.get((stats.size()/2)-1) + stats.get(stats.size()/2))/2 : stats.get((stats.size()/2));
+		
+		return String.format("Range: %02d|%02d|%02d Average: %02d|%02d|%02d Median: %02d|%02d|%02d",
+				Range/3600,(Range%3600)/60,Range%60,Mean/3600,(Mean%3600)/60,Mean%60,Median/3600,(Median%3600)/60,Median%60);
+	}
 }
---------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 import java.util.*;
 import java.util.regex.Pattern;
 
 public class Stat {
         
-  public static String stat(String strg) {
+	public static String stat(String strg) {
     if (strg.equals("")) return "";
     Integer[] stats =
       Arrays.asList(strg.split(", "))
@@ -125,7 +125,7 @@ public class Stat {
       stats[stats.length / 2] :
       (stats[stats.length / 2] + stats[stats.length / 2 - 1]) / 2;
     return String.format("Range: %s Average: %s Median: %s", secToSt(range), secToSt(avg), secToSt(median));
-  }
+	}
   
   private static int toSeconds(String st) {
     String[] time = st.split(Pattern.quote("|"));
@@ -142,8 +142,7 @@ public class Stat {
            String.format("%02d", (int) (val - 3600 * h - 60 * m));
   }
 }
---------------------------------------------------------------------------------------------
-
+----------------------------------------------------------------------------------
 import java.text.MessageFormat;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -199,8 +198,7 @@ public class Stat {
         );
     }
 }
-_______________________________________________________________________________________
-
+-------------------------------------------------------------------------------
 import static java.util.stream.IntStream.of;
 import static java.util.stream.Stream.of;
 
@@ -220,38 +218,6 @@ class Stat {
         median / 3600, median % 3600 / 60, median % 60);
   }
 }
-----------------------------------------------------------------------------------------------
-public class Stat {
-       
-  public static String stat(final String s) {
-    
-    final String times[] = s.split(",\\s");    
-    final int len = times.length;
-    final int[] ary = new int[len];
-    
-    int nSum = 0, nMax = 0, nMin = Integer.MAX_VALUE;
-    for (int i = 0; i < len; i++) {
-      final String p[] = times[i].split("[|]");
-      final int n = ary[i] = Integer.valueOf(p[0]) * 3600  + Integer.valueOf(p[1]) * 60 + Integer.valueOf(p[2]);
-      nSum += n; 
-      nMax = Math.max(n, nMax); 
-      nMin = Math.min(n, nMin);
-    }
-    
-    java.util.Arrays.sort(ary);    
-    return String.format("Range: %s Average: %s Median: %s", 
-      fmt(nMax - nMin), 
-      fmt(nSum / len), 
-      fmt(len % 2 == 1 ? ary[len/2] : (ary[len/2 - 1] + ary[len/2]) / 2));
-  }
-  
-  private static String fmt(final int x) {
-    return String.format("%02d|%02d|%02d", x/3600, x%3600/60, x%60);
-  }
-
-}
-
-
 
 
 
