@@ -1,80 +1,114 @@
-/* 8KYU CodeWars Triple Trouble
+/* 6KYU CodeWars Triple Trouble 
 
-Triple Trouble
-Create a function that will return a string that combines all of 
-the letters of the three inputed strings in groups. Taking the 
-first letter of all of the inputs and grouping them next to each 
-other. Do this for every letter, see example below!
+Write a function
 
-E.g. Input: "aa", "bb" , "cc" => Output: "abcabc"
+TripleDouble(long num1, long num2)
+which takes numbers num1 and num2 and returns 1 if there is a straight 
+triple of a number at any place in num1 and also a straight double of 
+the same number in num2.
 
-Note: You can expect all of the inputs to be the same length.
+If this isn't the case, return 0
+
+Examples
+TripleDouble(451999277, 41177722899) == 1 // num1 has straight triple 999s and 
+                                          // num2 has straight double 99s
+
+TripleDouble(1222345, 12345) == 0 // num1 has straight triple 2s but num2 has only a single 2
+
+TripleDouble(12345, 12345) == 0
+
+TripleDouble(666789, 12345667) == 1
 
 */
-
 public class Kata {
-  public static String tripleTrouble(String one, String two, String three) {
-    // Solution
-    String x = "";
-    for (int i = 0; i < one.length(); i++) {
-      x += one.charAt(i);
-      x += two.charAt(i);
-      x += three.charAt(i);
-    }
-    return x;
-  }
-}
-/*--------------------------------------------------------------------------
-public class Kata {
-  public static String tripleTrouble(String s1, String s2, String s3) {
-    StringBuilder sb = new StringBuilder(s1.length()*3);
-    for (int i=0; i<s1.length(); i++) {
-      sb.append(s1.charAt(i)).append(s2.charAt(i)).append(s3.charAt(i));
-    }
-    return sb.toString();
-  }
-}
------------------------------------------------------------------------------
-public class Kata {
-  public static String tripleTrouble(String one, String two, String three) {
-    String s = "";
-    for (int i = 0; i < one.length(); i++){
-      s += "" + one.charAt(i) + two.charAt(i) + three.charAt(i);
-    }
-    return s;
-  }
-}
------------------------------------------------------------------------------
-public class Kata {
-  public static String tripleTrouble(String bm, String aa, String tn) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < bm.length(); i ++) {
-            sb.append(bm.charAt(i));
-            sb.append(aa.charAt(i));
-            sb.append(tn.charAt(i));
+  public static int TripleDouble(long num1, long num2) {
+    String one = Long.toString(num1);
+    String two = Long.toString(num2);
+    for (int i = 2; i < one.length(); i++) {
+      if (two.lastIndexOf(one.charAt(i)) > 0 && (one.charAt(i) == one.charAt(i - 1) && one.charAt(i) == one.charAt(i - 2)) && two.charAt(two.lastIndexOf(one.charAt(i))) == two.charAt(two.lastIndexOf(one.charAt(i)) - 1))
+                return 1;
         }
-        return sb.toString();
-    }
-}
------------------------------------------------------------------------------
-import java.util.stream.*;
-
-public class Kata {
-  public static String tripleTrouble(String a, String b, String c) {
-    return IntStream.range(0,a.length()).mapToObj(i -> "" + a.charAt(i) + b.charAt(i) + c.charAt(i)).collect(Collectors.joining());
+    return 0;
   }
 }
------------------------------------------------------------------------------
-public class Kata {
-  public static String tripleTrouble(String one, String two, String three) {
+/*-------------------------------------------------------------------------------
+public class Kata
+{
+  public static int TripleDouble(long num1, long num2) 
+  {
+    String n1str = String.valueOf(num1);
+    String n2str = String.valueOf(num2);
+    for(int i=0;i<10;i++) {
+      String n = String.valueOf(i);
+      if( n1str.contains(n+n+n) && n2str.contains(n+n) ) return 1;
+    }
+    return 0;
+  }
+}
+-------------------------------------------------------------------------------
+public class Kata
+{
+  public static int TripleDouble(long num1, long num2) 
+  {
+    System.out.println(hasRepeat(num1, 3));
+    System.out.println(hasRepeat(num2, 2));
+    return hasRepeat(num1, 3) && hasRepeat(num2, 2) ? 1 : 0;
+  }
   
-  StringBuilder x = new StringBuilder();
-  String[] allStrings = new String[]{one, two, three};
-  for(int i = 0; i < one.length(); i++)
-       for (String s : allStrings) x.append(s.charAt(i));
-        return x.toString();
+  public static boolean hasRepeat(long num, int times) {
+    Long old = null;
+    int t = 0;
+    while (num > 0) {
+      Long n = num % 10;
+      num /= 10;
+      if (n == old) {
+        if (++t == times) return true;
+      } else {
+        old = n;
+        t = 1;
+      }
+    }
+    return false;
+  }
 }
+-------------------------------------------------------------------------------
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+public class Kata {
+    public static int TripleDouble(long num1, long num2) {
+        return IntStream.range(0, 10).anyMatch(index -> isIncluded(String.valueOf(num1), index, 3) &&
+                isIncluded(String.valueOf(num2), index, 2)) ? 1 : 0;
+    }
+
+    public static boolean isIncluded(String value, int index, int times) {
+        return value.contains(repeat(String.valueOf(index), times));
+    }
+
+    private static String repeat(String s, int times) {
+        return IntStream.range(0, times).mapToObj(c -> s).collect(Collectors.joining(""));
+    }
 }
+--------------------------------------------------------------------------------
+public class Kata
+{
+  public static int TripleDouble(long num1, long num2) 
+  {
+    int ans = 0;
+    String str1 = Long.toString(num1);
+    String str2 = Long.toString(num2);
+    for (int i =0;ans==0 && i<str1.length()-2;i++){
+      if (str1.charAt(i)==str1.charAt(i+1) && str1.charAt(i)==str1.charAt(i+2) && ans==0){
+        for (int j=0; ans==0 && j<str2.length()-1; j++){
+          if (str2.charAt(j) == str1.charAt(i) && str2.charAt(j)==str2.charAt(j+1)){
+            ans=1;
+          }
+        }
+      }
+    }
+    return ans;
+  }
+ }
 
 
 
