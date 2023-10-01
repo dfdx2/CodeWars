@@ -1,11 +1,16 @@
-/*  7 KYU  CodeWars   To Leet Speak
-Your task is to write a function toLeetSpeak that converts a regular 
-english sentence to Leetspeak.
+/* 7KYU CodeWars To Leet Speak
+
+Your task is to write a function toLeetSpeak that converts a regular english sentence to Leetspeak.
+
 More about LeetSpeak You can read at wiki -> https://en.wikipedia.org/wiki/Leet
+
 Consider only uppercase letters (no lowercase letters, no numbers) and spaces.
+
 For example:
+
 toLeetSpeak("LEET") returns "1337"
 In this kata we use a simple LeetSpeak dialect. Use this alphabet:
+
 {
   A : '@',
   B : '8',
@@ -35,46 +40,141 @@ In this kata we use a simple LeetSpeak dialect. Use this alphabet:
   Z : '2'
 }
 
+
+
+
 */
 
-import java.util.HashMap;
-import java.util.stream.Collectors;
 class Kata {
     static String toLeetSpeak(final String speak) {
-        HashMap<Character, Character> Leet = new HashMap<>();
-      for (int i = 65; i <= 90; i++) {
-        char c = (char) i;
-        switch (c) {
-            case 'A': Leet.put('A', '@'); break;
-            case 'B': Leet.put('B', '8'); break;
-            case 'C': Leet.put('C', '('); break;
-            case 'D': Leet.put('D', 'D'); break;
-            case 'E': Leet.put('E', '3'); break;
-            case 'F': Leet.put('F', 'F'); break;
-            case 'G': Leet.put('G', '6'); break;
-            case 'H': Leet.put('H', '#'); break;
-            case 'I': Leet.put('I', '!'); break;
-            case 'J': Leet.put('J', 'J'); break;
-            case 'K': Leet.put('K', 'K'); break;
-            case 'L': Leet.put('L', '1'); break;
-            case 'M': Leet.put('M', 'M'); break;
-            case 'N': Leet.put('N', 'N'); break;
-            case 'O': Leet.put('O', '0'); break;
-            case 'P': Leet.put('P', 'P'); break;
-            case 'Q': Leet.put('Q', 'Q'); break;
-            case 'R': Leet.put('R', 'R'); break;
-            case 'S': Leet.put('S', '$'); break;
-            case 'T': Leet.put('T', '7'); break;
-            case 'U': Leet.put('U', 'U'); break;
-            case 'V': Leet.put('V', 'V'); break;
-            case 'W': Leet.put('W', 'W'); break;
-            case 'X': Leet.put('X', 'X'); break;
-            case 'Y': Leet.put('Y', 'Y'); break;
-            case 'Z': Leet.put('Z', '2'); break;
-            default : Leet.put(c, c);
+      StringBuilder sb = new StringBuilder();
+      for (int i = 0; i < speak.length(); i++) {
+        if (speak.charAt(i) == 'A') {
+          sb.append('@');
+        }
+        else if (speak.charAt(i) == 'B') {
+          sb.append('8');
+        }
+        else if (speak.charAt(i) == 'C') {
+          sb.append('(');
+        }
+        else if (speak.charAt(i) == 'D') {
+          sb.append('D');
+        }
+        else if (speak.charAt(i) == 'E') {
+          sb.append('3');
+        }
+        else if (speak.charAt(i) == 'F') {
+          sb.append('F');
+        }
+        else if (speak.charAt(i) == 'G') {
+          sb.append('6');
+        }
+        else if (speak.charAt(i) == 'H') {
+          sb.append('#');
+        }
+        else if (speak.charAt(i) == 'I') {
+          sb.append('!');
+        }
+        else if (speak.charAt(i) == 'J') {
+          sb.append('J');
+        }
+        else if (speak.charAt(i) == 'K') {
+          sb.append('K');
+        }
+        else if (speak.charAt(i) == 'L') {
+          sb.append('1');
+        }
+        else if (speak.charAt(i) == 'M') {
+          sb.append('M');
+        }
+        else if (speak.charAt(i) == 'N') {
+          sb.append('N');
+        }
+        else if (speak.charAt(i) == 'O') {
+          sb.append('0');
+        }
+        else if (speak.charAt(i) == 'P') {
+          sb.append('P');
+        }
+        else if (speak.charAt(i) == 'Q') {
+          sb.append('Q');
+        }
+        else if (speak.charAt(i) == 'R') {
+          sb.append('R');
+        }
+        else if (speak.charAt(i) == 'S') {
+          sb.append('$');
+        }
+        else if (speak.charAt(i) == 'T') {
+          sb.append('7');
+        }
+        else if (speak.charAt(i) == 'U') {
+          sb.append('U');
+        }
+        else if (speak.charAt(i) == 'V') {
+          sb.append('V');
+        }
+        else if (speak.charAt(i) == 'W') {
+          sb.append('W');
+        }
+        else if (speak.charAt(i) == 'X') {
+          sb.append('X');
+        }
+        else if (speak.charAt(i) == 'Y') {
+          sb.append('Y');
+        }
+        else if (speak.charAt(i) == 'Z') {
+          sb.append('2');
+        }
+        else {
+          sb.append(speak.charAt(i));
         }
       }
-      Leet.put(' ', ' ');
-      return speak.chars().mapToObj(i -> String.valueOf(Leet.getOrDefault((char)i, (char)i))).collect(Collectors.joining(""));
+      return sb.toString();
     }
 }
+/*-----------------------------------------------------------------------------
+class Kata {
+    static String toLeetSpeak(final String speak) {
+        StringBuilder sb = new StringBuilder(speak.length());
+        for (char c: speak.toCharArray()) {
+          switch (c) {
+            case 'A': sb.append('@'); break;
+            case 'B': sb.append('8'); break;
+            case 'C': sb.append('('); break;
+            case 'E': sb.append('3'); break;
+            case 'G': sb.append('6'); break;
+            case 'H': sb.append('#'); break;
+            case 'I': sb.append('!'); break;
+            case 'L': sb.append('1'); break;
+            case 'O': sb.append('0'); break;
+            case 'S': sb.append('$'); break;
+            case 'T': sb.append('7'); break;
+            case 'Z': sb.append('2'); break;
+            default: sb.append(c); break;
+          }
+        }
+        return sb.toString();
+    }
+}
+---------------------------------------------------------------------------------
+class Kata {
+    static String toLeetSpeak(final String speak) {
+        return speak.replace("A", "@").replace("B", "8").replace("C", "(").replace("E", "3").replace("G", "6").replace("H", "#").replace("I", "!").replace("L", "1").replace("O", "0").replace("S", "$").replace("T", "7").replace("Z", "2");
+    }
+}
+----------------------------------------------------------------------------------
+class Kata {
+  static String toLeetSpeak(final String speak) {
+    char[] alphabet = {'@','8','(','D','3','F','6','#','!','J','K','1','M','N','0','P','Q','R','$','7','U','V','W','X','Y','2'};
+    StringBuilder sb = new StringBuilder(speak);
+    for (int i=0, n=speak.length(); i<n; i++)
+      if (sb.charAt(i) >='A' && sb.charAt(i)<='Z')
+        sb.setCharAt(i, alphabet[sb.charAt(i)-'A']);
+    return sb.toString();
+  }
+}
+
+
+*/
