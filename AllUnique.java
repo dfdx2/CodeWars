@@ -10,11 +10,12 @@ are case-sensitive, e.g. 'a' and 'A' are considered different characters.
 
 import java.util.HashMap;
 import java.util.*;
-public class Kata {
+public class AllUnique {
     public static boolean hasUniqueChars(String str) {
 
       Map<Character, Integer> result = new HashMap<>();
       for (int i = 0; i < str.length(); i++) {
+       // create a hashmap to hold all values
         Character ch = str.charAt(i);
         if (!result.containsKey(ch)) {
           result.put(ch, 1);
