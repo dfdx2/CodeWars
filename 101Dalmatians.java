@@ -10,7 +10,7 @@ The number of dogs will always be a number and there will always be at least 1 d
 
 */
 
-public class ZywOo {
+public class 101Dalmatians {
 
   public static String howManyDalmatians(int number) {
   
