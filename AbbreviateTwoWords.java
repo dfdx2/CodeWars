@@ -23,6 +23,7 @@ public class AbbreviateTwoWords {
     String li = names[1].toUpperCase();
     char firstInitial = fi.charAt(0);
     char lastInitial = li.charAt(0);
+    // return firstInitial + "." + lastInitial;
     String i = firstInitial + "." + lastInitial;
     return i;
   }
