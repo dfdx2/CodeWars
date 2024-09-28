@@ -22,7 +22,35 @@ Inputs
 Values will be given as one of "rock", "paper", "scissors", "lizard", "spock".
 
 */
-
+public class RockPaperScissorsLizardSpock {
+  
+  public static String rpsls(String player1, String player2){
+    String winner1 = "Player 1 Won!";
+    String winner2 = "Player 2 Won!";
+    String draw = "Draw!";
+    if (player1.equals(player2)) {
+      return draw;
+    }
+    if (player1.equals("scissors") && player2.equals("paper") || player1.equals("scissors") && player2.equals("lizard")) {
+      return winner1;
+    }
+    if (player1.equals("paper") && player2.equals("rock") || player1.equals("paper") && player2.equals("spock")) {
+      return winner1;
+    }
+    if (player1.equals("rock") && player2.equals("lizard") || player1.equals("rock") && player2.equals("scissors")) {
+      return winner1;
+    }
+    if (player1.equals("lizard") && player2.equals("spock") || player1.equals("lizard") && player2.equals("paper")) {
+      return winner1;
+    }
+    if (player1.equals("spock") && player2.equals("scissors") || player1.equals("spock") && player2.equals("rock")) {
+      return winner1;
+    }
+    return winner2;
+  }
+}
+/*
+----------------------------------------------------------------------------------
 public class Kata {
   
   public static String rpsls(String player1, String player2){
@@ -66,7 +94,7 @@ public class Kata {
     
   }
 }
-/*-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
 import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
