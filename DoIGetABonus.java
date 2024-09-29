@@ -16,14 +16,19 @@ prefixed with "£" (= "\u00A3", JS, Go, Java, Scala, and Julia),
 or "¥" (Rust).
 
 */
-
-public class Kata{
+public class DoIGetABonus{
+  public static String bonusTime(final int salary, final boolean bonus) {
+    return bonus ? "£" + String.valueOf(salary * 10) : "£" + String.valueOf(salary);
+  }
+}
+/*
+public class Kata {
   public static String bonusTime(final int salary, final boolean bonus) {
     
     return (!bonus) ?"\u00A3" + salary : "\u00A3" + salary * 10;
   }
 }
-/*--------------------------------------------------------------------
+--------------------------------------------------------------------
 public class Kata{
   public static String bonusTime(final int salary, final boolean bonus) {
     return "\u00A3" + (bonus ? 10 : 1) * salary;
