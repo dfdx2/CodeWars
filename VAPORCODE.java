@@ -15,7 +15,24 @@ Examples
 "Why isn't my code working?"  -->  "W  H  Y  I  S  N  '  T  M  Y  C  O  D  E  W  O  R  K  I  N  G  ?"
 
 */
-
+public class VAPORCODE {
+  public static String vaporcode(String s) {
+    s = s.replaceAll(" ", "");
+    s = s.toUpperCase();
+    String result = "";
+    for (int i = 0; i < s.length(); i++) {
+      result += s.charAt(i) + "  ";
+    }
+    return result.substring(0, result.length() - 2);
+  }
+}
+/*--------------------------------------------------------------------------------
+interface Solution {
+  static String vaporcode(String s) {
+    return s.replace(" ", "").replace("","  ").toUpperCase().trim();
+  }
+}
+----------------------------------------------------------------------------------
 public class Solution {
   public static String vaporcode(String s) {
     s = s.toUpperCase();
@@ -33,7 +50,7 @@ public class Solution {
     return sb.toString().trim();
   }
 }
-/*---------------------------------------------------------------------------
+---------------------------------------------------------------------------
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
