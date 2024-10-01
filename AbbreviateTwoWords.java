@@ -14,7 +14,16 @@ Sam Harris => S.H
 patrick feeney => P.F
 
 */
+public class AbbreviateTwoWords {
 
+  public static String abbrevName(String name) {
+    String[] result = name.split(" ");
+    String j = result[0].charAt(0) + "." + result[1].charAt(0);
+    return j.toUpperCase();
+  }
+}
+
+/*--------------------------------------------------------------------
 public class AbbreviateTwoWords {
 
   public static String abbrevName(String name) {
@@ -23,12 +32,11 @@ public class AbbreviateTwoWords {
     String li = names[1].toUpperCase();
     char firstInitial = fi.charAt(0);
     char lastInitial = li.charAt(0);
-    // return firstInitial + "." + lastInitial;
     String i = firstInitial + "." + lastInitial;
     return i;
   }
 }
-/*-----------------------------------------------------------------
+-----------------------------------------------------------------
 public class AbbreviateTwoWords {
 
   public static String abbrevName(String name) {
