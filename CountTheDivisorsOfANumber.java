@@ -11,11 +11,8 @@ Examples (input --> output)
 30 --> 8 (1, 2, 3, 5, 6, 10, 15, 30)
 
 */
-
-public class FindDivisor {
-
+public class CountTheDivisorsOfANumber {
   public long numberOfDivisors(int n) {
-    // TODO please write your code below this comment
     int result = 0;
     for (int i = n; i >= 1; --i) {
       if (n % i == 0) {
@@ -23,11 +20,8 @@ public class FindDivisor {
       }
     }
     return result;
-
   }
-
 }
-
 /*--------------------------------------------------
 
 import java.util.stream.IntStream;
