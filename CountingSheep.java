@@ -17,7 +17,21 @@ For example,
 Hint: Don't forget to check for bad values like null/undefined
 
 */
-
+public class CountingSheep {
+  public static int countSheeps(Boolean[] arrayOfSheeps) {
+      int result = 0;
+    for (int i = 0; i < arrayOfSheeps.length; i++) {
+      if (arrayOfSheeps[i] != null && arrayOfSheeps[i] == true) {
+        result++;
+      }
+      else {
+        continue;
+      }
+    }
+    return result;
+  }
+}
+/*------------------------------------------------------------
 import java.util.*;
 
 public class CountingSheep {
@@ -28,7 +42,7 @@ public class CountingSheep {
     }
   }
 
-/*--------------------------------------------------------------
+--------------------------------------------------------------
 public class Counter {
   public int countSheeps(Boolean[] arrayOfSheeps) {
     int counter = 0;
