@@ -11,6 +11,45 @@ klmnopqrstuvwxyzabcdefghij
 
 
 */
+import java.util.*;
+public class Move10 {
+  public static String moveTen(String s) {
+    Map<Character, Character> map = new HashMap<>();
+    map.put('a', 'k');
+    map.put('b', 'l');
+    map.put('c', 'm');
+    map.put('d', 'n');
+    map.put('e', 'o');
+    map.put('f', 'p');
+    map.put('g', 'q');
+    map.put('h', 'r');
+    map.put('i', 's');
+    map.put('j', 't');
+    map.put('k', 'u');
+    map.put('l', 'v');
+    map.put('m', 'w');
+    map.put('n', 'x');
+    map.put('o', 'y');
+    map.put('p', 'z');
+    map.put('q', 'a');
+    map.put('r', 'b');
+    map.put('s', 'c');
+    map.put('t', 'd');
+    map.put('u', 'e');
+    map.put('v', 'f');
+    map.put('w', 'g');
+    map.put('x', 'h');
+    map.put('y', 'i');
+    map.put('z', 'j');
+    
+    StringBuilder sb = new StringBuilder();
+    for (int i = 0; i < s.length(); i++) {
+      sb.append(map.get(s.charAt(i)));
+    }
+    return sb.toString();
+  }
+}
+/*-----------------------------------------------------------------------------
 public class MoveTen {
   public static String moveTen(String s) {
     StringBuilder sb = new StringBuilder();
@@ -97,7 +136,7 @@ public class MoveTen {
     return sb.toString();
   }
 }
-/*---------------------------------------------------------------------------
+---------------------------------------------------------------------------
 import static java.util.stream.Collectors.joining;
 
 interface MoveTen {
