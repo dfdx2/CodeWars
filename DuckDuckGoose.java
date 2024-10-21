@@ -19,6 +19,12 @@ duck_duck_goose([$a, $b, $c, $d], 5); // => $a["name"]
 duck_duck_goose([$a, $b, $c, $d], 4); // => $d["name"]
 
 */
+public class DuckDuckGoose {
+  public static String duckDuckGoose(Player[] players, int goose) {
+    return goose % players.length == 0 ? players[players.length - 1].name : players[goose % players.length - 1].name;
+  }
+}
+/*-------------------------------------------------------------------------
 public class Kata {
   public static String duckDuckGoose(Player[] players, int goose) {
     // Note: Player objects have a String field called 'name'.
@@ -26,7 +32,7 @@ public class Kata {
     return (result == 0) ? players[players.length - 1].name : players[result - 1].name;
   }
 }
-/*---------------------------------------------------------------------------
+---------------------------------------------------------------------------
 public class Kata {
   public static String duckDuckGoose(Player[] players, int goose) {
     return players[(goose - 1) % players.length].name;
