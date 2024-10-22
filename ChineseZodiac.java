@@ -19,6 +19,14 @@ elements (or $elements in Ruby) is a preloaded array containing the elements in 
 Tell me your zodiac sign and element in the comments. Happy coding :)
 
 */
+public class ChineseZodiac {
+  public static String chineseZodiac(int year) {
+    String[] animal = {"Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig"};
+    String[] element = {"Wood", "Fire", "Earth", "Metal", "Water"};
+    return element[((year - 1924) / 2) % 5] + " " + animal[(year - 1924) % 12];
+  }
+}
+/*------------------------------------------------------------------------------
 public class Kata extends Arrays{
   public static String chineseZodiac(int year) {
     String[] animal = {"Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig"};
@@ -29,7 +37,7 @@ public class Kata extends Arrays{
     return element[y] + " " + animal[x];
   }
 }
-/*-------------------------------------------------------------------------
+-------------------------------------------------------------------------
 public class Kata extends Arrays {
 
   public static String chineseZodiac(int year) {
