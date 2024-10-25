@@ -16,7 +16,12 @@ same exact logics
 Simples!
 
 */
-
+public class MyHeadIsAtTheWrongEnd {
+  public static String[] fixTheMeerkat(String[] arr) {
+    return new String[] {arr[2], arr[1], arr[0]};
+  }
+}
+/*---------------------------------------------------------------
 public class WrongEndHead {
   public static String[] fixTheMeerkat(String[] arr) {
     String[] result = {arr[2], arr[1], arr[0]};
