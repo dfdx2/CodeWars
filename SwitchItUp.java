@@ -8,11 +8,14 @@ Output :: "One".
 
 If your language supports it, try using a switch statement.
 
-
-
-
 */
-
+public class SwitchItUp {
+  public static String switchItUp(int number) {
+    String[] result = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+    return result[number];
+  }
+}
+/*-----------------------------------------------------------
 public class Kata
 {
   public static String switchItUp(int number)
@@ -34,7 +37,7 @@ public class Kata
     return x;
     }
 }
-/*------------------------------------------------------- 
+------------------------------------------------------- 
 public class Kata {
   public static String switchItUp(int number) {
     return new String[] {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"}[number];
@@ -82,7 +85,68 @@ public class Kata
      return word;
   }
 }
+----------------------------------------------------------------
+import java.util.HashMap;
+public class Kata {
+  public static String switchItUp(int number) {
+    var numbers = new HashMap<>();
+    for (Number enumNumber : Number.values()) {
+      numbers.put(enumNumber.getInt(),enumNumber);
+    }
+    
+    return numbers.get(number).toString();
+  }
+}
 
+enum Number {
+  NULL(0, "Zero"), 
+  ONE(1,"One"), 
+  TWO(2,"Two"), 
+  THREE(3,"Three"), 
+  FOUR(4,"Four"), 
+  FIVE(5,"Five"), 
+  SIX(6,"Six"),
+  SEVEN(7,"Seven"), 
+  EIGHT(8,"Eight"), 
+  NINE(9,"Nine");
+  
+  private final int number;
+  private final String NumberString;
+  
+  Number(int number, String NumberString){
+    this.number = number;
+    this.NumberString = NumberString;
+  }
+  
+  public int getInt(){
+    return number;
+  }
+  
+  @Override
+  public String toString() {
+    return NumberString;
+  }
+    
+}
+------------------------------------------------------------------
+import java.util.HashMap;
+import java.util.Map;
 
-
+public class Kata
+{
+  public static String switchItUp(int number) {
+    Map<Integer, String> numbers = new HashMap<>();
+    numbers.put(0, "Zero");
+    numbers.put(1, "One");
+    numbers.put(2, "Two");
+    numbers.put(3, "Three");
+    numbers.put(4, "Four");
+    numbers.put(5, "Five");
+    numbers.put(6, "Six");
+    numbers.put(7, "Seven");
+    numbers.put(8, "Eight");
+    numbers.put(9, "Nine");
+    return numbers.get(number);
+  }
+}
 */
