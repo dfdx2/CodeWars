@@ -7,15 +7,29 @@ The string may contain any of the 128 ASCII characters. Characters
 are case-sensitive, e.g. 'a' and 'A' are considered different characters.
 
 */
-
-import java.util.HashMap;
 import java.util.*;
 public class AllUnique {
+    public static boolean hasUniqueChars(String str) {
+      Map<Character, Integer> map = new HashMap<>();
+      for (int i = 0; i < str.length(); i++) {
+        if (!map.containsKey(str.charAt(i))) {
+          map.put(str.charAt(i), 1);
+        }
+        else {
+          return false;
+        }
+      }
+      return true;
+    }
+}
+/*-----------------------------------------------------------------------
+import java.util.HashMap;
+import java.util.*;
+public class Kata {
     public static boolean hasUniqueChars(String str) {
 
       Map<Character, Integer> result = new HashMap<>();
       for (int i = 0; i < str.length(); i++) {
-       // create a hashmap to hold all values
         Character ch = str.charAt(i);
         if (!result.containsKey(ch)) {
           result.put(ch, 1);
@@ -34,7 +48,7 @@ public class AllUnique {
       return true;
     }
 }
-/*--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 public class Kata {
     public static boolean hasUniqueChars(String s) {
       return s.chars().distinct().count() == s.length();
