@@ -5,14 +5,19 @@ returns "Even" for even numbers or "Odd" for odd numbers.
 
 */
 public class EvenOrOdd {
+    public static String evenOrOdd(int number) {
+        return number % 2 != 0 ? "Odd" : "Even";
+    }
+}
+/*-----------------------------------------------------------------
+public class EvenOrOdd {
     public static String even_or_odd(int number) {
         //Place code here
       String result = (number % 2 == 0) ? "Even" : "Odd"; 
       return result;
     }
 }
-
-/*-------------------------------------------------------------------
+-------------------------------------------------------------------
 public class EvenOrOdd {
     public static String even_or_odd(int number) {
         //Place code here
