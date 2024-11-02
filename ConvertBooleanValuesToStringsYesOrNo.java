@@ -5,7 +5,7 @@ a "Yes" string for true, or a "No" string for false.
 
 */
 
-class YesOrNo
+class ConvertBooleanValuesToStringsYesOrNo
 {
   public static String boolToWord(boolean b) {
       return b ? "Yes" : "No";
