@@ -13,6 +13,23 @@ XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
 XO("zzoo") => false
 
 */
+public class ExesAndOhs {
+  public static boolean getXO (String str) {
+    int a = 0;
+    int b = 0;
+    str = str.toLowerCase();
+    for (char c : str.toCharArray()) {
+      if (c == 'x') {
+        a++;
+      }
+      if (c == 'o') {
+        b++;
+      }
+    }
+    return a == b;
+  }
+}
+/*-----------------------------------------------------------------------------
 public class XO {
   
   public static boolean getXO (String str) {
@@ -34,10 +51,15 @@ public class XO {
     
   }
 }
-
-
-
-/*
+---------------------------------------------------------------
+public class XO {
+  
+  public static boolean getXO (String str) {
+    str = str.toLowerCase();
+    return str.replace("o","").length() == str.replace("x","").length();
+    
+  }
+}
 ---------------------------------------------------------------
 public class XO {
   
