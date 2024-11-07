@@ -13,7 +13,28 @@ Examples
 [17, 17, 3, 17, 17, 17, 17] ==> 3
 
 */
-
+import java.util.*;
+class FindTheStrayNumber {
+  static int stray(int[] numbers) {
+    Map<Integer, Integer> map = new HashMap<>();
+    for (int i = 0; i < numbers.length; i++) {
+      if (!map.containsKey(numbers[i])) {
+        map.put(numbers[i], 1);
+      }
+      else {
+        int total = map.get(numbers[i]);
+        map.put(numbers[i], total + 1);
+      }
+    }
+    for (int i = 0; i < numbers.length; i++) {
+      if (map.get(numbers[i]) == 1) {
+        return numbers[i];
+      }
+    }
+    return -1;
+  }
+}
+/*---------------------------------------------------------------------------
 class Solution {
     static int stray(int[] numbers) {
       int result = 0;
@@ -28,7 +49,7 @@ class Solution {
       return result;
     }
 }
-/*------------------------------------------------------------------------
+------------------------------------------------------------------------
 class Solution {
   static int stray(int[] numbers) {
     if (numbers[0] != numbers[1] && numbers[0] != numbers[2]) return numbers[0];
