@@ -6,7 +6,7 @@ String will never be empty and you do not need to account for different data typ
 
 */
 
-public class Kata {
+public class ShortestWord {
     public static int findShort(String s) {
       String[] t = s.split(" ");  
       int result = 100;
