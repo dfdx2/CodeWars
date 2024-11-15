@@ -20,7 +20,22 @@ Have fun coding it and please don't forget to vote and rank this kata! :-)
 I have also created other katas. Take a look if you enjoyed this kata!
 
 */
-
+public class DontGiveMeFive {
+  public static int dontGiveMeFive(int start, int end) {
+    int result = 0;
+    for (int i = start; i <= end; i++) {
+      String j = String.valueOf(i);
+      if (j.contains("5")) {
+        continue;
+      }
+      else {
+        result++;
+      }
+    }
+    return result;
+  }
+}
+/*---------------------------------------------------------------------
 public class Kata {
   public static int dontGiveMeFive(int start, int end) {
     int result = 0;
@@ -33,7 +48,7 @@ public class Kata {
     return String.valueOf(i).contains("5");
   }
 }
-/*-------------------------------------------------------------------------
+-------------------------------------------------------------------------
 public class Kata{
   public static int dontGiveMeFive(int start, int end){
     int ans = 0;
