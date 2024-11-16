@@ -11,7 +11,12 @@ Output : "HEllO WOrld!"
 Note: Y is not a vowel in this kata.
 
 */
-
+public class ChangingLetters {
+  public static String swap(String st){
+    return st.replace("a", "A").replace("e","E").replace("i", "I").replace("o", "O").replace("u","U");
+  }
+}
+/*------------------------------------------------------------------
 public class Kata {
     public static String swap(String st){
     
@@ -23,7 +28,7 @@ public class Kata {
      return st;
     }
 }
-/*--------------------------------------------------------------------
+--------------------------------------------------------------------
 public class Kata {
     public static String swap(String st){
       return st.replace("a","A").replace("e","E").replace("i","I").replace("o","O").replace("u","U");
