@@ -13,7 +13,16 @@ This example will return the string Hello, John Smith!
 Welcome to Phoenix, Arizona!
 
 */
+public class WelcomeToTheCity {
+  public String sayHello(String [] name, String city, String state){
+    if (name.length == 3) {
+      return "Hello, " + name[0] + " " + name[1] + " " + name[2] + "! Welcome to " + city + ", " + state + "!";
+    }
+    return "Hello, " + name[0] + " " + name[1] + "! Welcome to " + city + ", " + state + "!";
+  }
+}
 
+/*-----------------------------------------------------------------------
 public class Hello{
   public String sayHello(String [] name, String city, String state) {
     
@@ -24,7 +33,7 @@ public class Hello{
     return "Hello," + x + "!" + " Welcome to " + city + ", " + state + "!";
   }
 }
-/*----------------------------------------------------------------------
+----------------------------------------------------------------------
 public class Hello{
   public String sayHello(String[] name, String city, String state){
     return String.format("Hello, %s! Welcome to %s, %s!",String.join(" ", name),city,state);
