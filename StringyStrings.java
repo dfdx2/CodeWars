@@ -10,6 +10,21 @@ with size 12 should return : '101010101010'.
 The size will always be positive and will only use whole numbers.
 
 */
+public class StringyStrings {
+  public static String stringy(int size) {
+    StringBuilder sb = new StringBuilder();
+    for (int i = 0; i < size; i++) {
+      if (i % 2 == 0) {
+        sb.append("1");
+      }
+      else {
+        sb.append("0");
+      }
+    }
+    return sb.toString();
+  }
+}
+/*-----------------------------------------------------------------
 public class Kata {
   public static String stringy(int size) {
     // Your code here
