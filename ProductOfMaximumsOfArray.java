@@ -42,7 +42,18 @@ Since the size (k) equal 3 , then the subsequence of size 3 whose gives
 product of maxima is 10 * 3 * -1 = -30 .
 
 */
-
+import java.util.Arrays;
+public class ProductOfMaximumsOfArray {
+  public static long maxProduct(int[] numbers, int sub_size) {
+    long result = 1;
+    Arrays.sort(numbers);
+    for (int i = numbers.length - sub_size; i < numbers.length; i++) {
+      result *= numbers[i];
+    }
+    return result;
+  }
+}
+/*-------------------------------------------------------------------
 import java.util.Arrays;
 public class Solution {
     public static long maxProduct(int[] numbers, int sub_size) {
@@ -58,7 +69,7 @@ public class Solution {
       return result;
     }
 }
-/*--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 import static java.util.Arrays.stream;
 
 public class Solution {
