@@ -12,7 +12,16 @@ or IllegalArgumentException (Java) or RangeException (PHP) or throw a RangeError
 More details about factorial can be found here.
 
 */
-public class Factorial {
+public class Factorial1 {
+  public int factorial(int n) {
+    if (n < 0 || n > 12) {
+      throw new IllegalArgumentException();
+    } 
+    return n == 0 ? 1 : n * factorial(n - 1);
+  }
+}
+/*--------------------------------------------------------------------
+public class Factorial1 {
 
   public int factorial(int n) {
     if (n < 0 || n > 12) {
