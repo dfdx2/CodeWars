@@ -26,7 +26,7 @@ Examples (Input -- => Output):
 */
 
 import java.util.Arrays;
-public class GiftSorter{
+public class SortTheGiftCode {
   public String sortGiftCode(String code){
     char[] test = code.toCharArray();
     Arrays.sort(test);
