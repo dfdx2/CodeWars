@@ -15,9 +15,8 @@ Explanation:
 
 */
 
-public class MaxMultiple {
+public class MaximumMultiple {
   public static int maxMultiple(int divisor, int bound) {
-    // Your code here
     int x = 0;
     for (int i = divisor; i <= bound; i++) {
       if (i % divisor == 0) {
@@ -41,7 +40,41 @@ public class MaxMultiple {
   }
 }
 --------------------------------------------------------------------------------
+import static java.util.stream.IntStream.rangeClosed;
 
+class MaxMultiple {
+  static int maxMultiple(int divisor, int bound) {
+    return rangeClosed(1, bound).filter(i -> i % divisor == 0).max().getAsInt();
+  }
+}
+--------------------------------------------------------------------------------
+import java.util.stream.IntStream; 
+import java.util.*;
 
+public class MaxMultiple {
+  public static int maxMultiple(int divisor, int bound) {
+    // Your code here
+    return IntStream
+          .rangeClosed(0,bound)
+          .filter(e -> e % divisor == 0)
+          .max()
+          .orElseThrow(NoSuchElementException::new);
+  }
+}
+---------------------------------------------------------------------
+import java.util.stream.Stream;
 
+public class MaxMultiple {
+    public static int maxMultiple(int divisor, int bound) {
+        return Stream.iterate(bound, n -> n-1).filter(it -> it % divisor == 0).findFirst().orElse(0);
+    }
+}
+---------------------------------------------------------------------
+import java.util.stream.IntStream;
+
+public class MaxMultiple {
+  public static int maxMultiple(int divisor, int bound) {
+    return IntStream.iterate(bound, i -> i-1).limit(bound).filter(n -> n % divisor == 0).findFirst().orElse(0);
+  }
+}
 */
