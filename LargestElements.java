@@ -9,10 +9,22 @@ largest(2, new int[]{7, 6, 5, 4, 3, 2, 1})
 
 
 */
-
+import java.util.Arrays;
+public class LargestElements {
+   public static int[] largest(int n, int[] arr) {
+     int[] result = new int[n];
+     Arrays.sort(arr);
+     int counter = 0;
+     for (int i = arr.length - n; i < arr.length; i++) {
+       result[counter] = arr[i];
+       counter++;
+     }
+     return result;
+   }
+}
+/*-------------------------------------------------------------------
 import java.util.Arrays;
 public class Solution {
-  
    public static int[] largest(int n, int[] arr) {
      Arrays.sort(arr);
      int[] result = new int[n];
@@ -24,7 +36,7 @@ public class Solution {
      return result;
    }
 }
-/*-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
 import java.util.*;
 public class Solution {
   
