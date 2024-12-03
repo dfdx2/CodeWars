@@ -23,6 +23,7 @@ I
 
 public class DrawStairs{
   public static String draw(int n){
+    // gonna redo and use StringBuilder
     String result = "";
     if (n == 1) {
       return "I";
