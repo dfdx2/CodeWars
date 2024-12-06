@@ -12,7 +12,14 @@ If a and b have the same length treat a as the longer producing
 b + reverse (a) + b
 
 */
-
+public class ShorterConcat {
+	public static String shorterReverseLonger(String a, String b) {
+    StringBuilder sb = new StringBuilder(a);
+    StringBuilder sc = new StringBuilder(b);
+    return a.length() >= b.length() ? b + sb.reverse().toString() + b : a + sc.reverse().toString() + a;
+	}
+}
+/*-----------------------------------------------------------------------
 public class ReverseLonger {
 	public static String shorterReverseLonger(String a, String b) {
     StringBuilder x = new StringBuilder(a);
@@ -27,7 +34,7 @@ public class ReverseLonger {
     }
 	}
 }
-/*------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 public class ReverseLonger {
 
 
