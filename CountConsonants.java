@@ -6,6 +6,12 @@ Consonants are all letters used to write English excluding the
 vowels a, e, i, o, u.
 
 */
+public class CountConsonants {
+  public static int getCount (String str) {
+    return str.replaceAll("[^BCDFGHJKLMNPQRSTUVWXYZbcdfghjklmnpqrstvwxyz]", "").length();
+  }
+}
+/*------------------------------------------------------------------
 public class Consonants {
   public static int getCount(String str) {
     
@@ -13,7 +19,7 @@ public class Consonants {
     return str.length();
   }
 }
-/*-----------------------------------------------------------------
+-----------------------------------------------------------------
 public class Consonants {
   public static int getCount(String str) {
     
