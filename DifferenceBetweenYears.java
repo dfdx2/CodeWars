@@ -11,6 +11,15 @@ Examples:
 At this level, you don't need validate months and days to calculate the difference.
 
 */
+public class DifferenceBetweenYears {
+  public static int howManyYears(String date1, String date2){
+    String high = date1.substring(0,4);
+    String low = date2.substring(0,4);
+    return Math.max(Integer.valueOf(high), Integer.valueOf(low)) - Math.min(Integer.valueOf(high), Integer.valueOf(low));
+  }
+}
+
+/*---------------------------------------------------------------------------
 public class Bud {
     public static int howManyYears(String date1, String date2){
       String one = date1.substring(0,4);
