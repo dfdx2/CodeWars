@@ -11,6 +11,20 @@ Examples
 "Hi! Hi!! Hi!" ---> "Hi Hi Hi!!!!"
 
 */
+public class Move_Exclamation_Points {
+  public static String remove(String s){
+    int count = 0;
+    for (int i = 0; i < s.length(); i++) {
+      if (s.charAt(i) == '!') {
+        count++;
+      }
+    }
+    s = s.replace("!", "");
+    String j = "!";
+    return s + j.repeat(count);
+  }
+}
+/*----------------------------------------------------------------
 public class Kata {
    public static String remove(String s){
      StringBuilder sb = new StringBuilder();
@@ -31,7 +45,7 @@ public class Kata {
      return sb.toString();
    }
 }
-/*---------------------------------------------------------------------
+---------------------------------------------------------------------
 interface Kata {
   static String remove(String s) {
     return s.replace("!", "") + s.replaceAll("[^!]", "");
