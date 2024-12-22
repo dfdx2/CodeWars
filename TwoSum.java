@@ -18,7 +18,19 @@ Based on: http://oj.leetcode.com/problems/two-sum/
 two_sum([1, 2, 3], 4) == {0, 2}
 
 */
-
+public class TwoSum {
+  public static int[] twoSum(int[] numbers, int target) {
+      for (int i = 0; i < numbers.length; i++) {
+        for (int j = numbers.length - 1; j > 0; j--) {
+          if (numbers[i] + numbers[j] == target) {
+            return new int[] {i, j};
+          }
+        }
+      }
+    return new int[] {};
+  }
+}
+/*----------------------------------------------------------------------
 public class Solution {
     public static int[] twoSum(int[] numbers, int target) {
       int[] result = new int[2];
@@ -35,7 +47,7 @@ public class Solution {
       return result;
     }
 }
-/*----------------------------------------------------------------------------
+----------------------------------------------------------------------------
 public class Solution
 {
     public static int[] twoSum(int[] numbers, int target)
