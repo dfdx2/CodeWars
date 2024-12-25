@@ -6,7 +6,13 @@ if it contains only one element or "longer""
 if more.
 
 */
-
+import java.util.*;
+public class Describe_A_List {
+  public static String describeList(final List list) {
+    return list.size() == 0 ? "empty" : list.size() == 1 ? "singleton" : "longer";
+  } 
+}
+/*---------------------------------------------------------------------
 import java.util.*;
 public class Kata {
   public static String describeList(final List list) {
@@ -14,7 +20,7 @@ public class Kata {
     return result == 0 ? "empty" : result == 1 ? "singleton" : "longer";
   }
 }
-/*-----------------------------------------------------------------------
+-----------------------------------------------------------------------
 import java.util.*;
 
 public class Kata {
