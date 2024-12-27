@@ -28,7 +28,12 @@ Email addresses may contain more than one . character.
 Note the additional whitespace around the bracketed literals in the examples!
 
 */
-
+public class EmailAddressObfuscator { 
+  public static String obfuscate(String email) {
+    return email.replace("@", " [at] ").replace(".", " [dot] ");
+  }
+}
+/*----------------------------------------------------------------------------
 public class EmailObfuscator {
     public static String obfuscate(String email) {
       email = email.replace("@", " [at] ");
@@ -36,7 +41,7 @@ public class EmailObfuscator {
       return email;    
     }
 }
-/*-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
 public class EmailObfuscator {
     
     public static String obfuscate(String email) {
