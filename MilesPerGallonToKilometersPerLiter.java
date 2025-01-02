@@ -14,6 +14,22 @@ Some useful associations relevant to this kata:
 1 Mile = 1.609344 kilometres
 
 */
+import java.text.DecimalFormat;
+public class MilesPerGallonToKilometersPerLiter {
+  public static float mpgToKPM(final float mpg) {
+    DecimalFormat df = new DecimalFormat("#.##");
+    float result = mpg / (float) 4.54609188 * (float) 1.609344;
+    String x = df.format(result);
+    return Float.parseFloat(x);
+  }
+}
+/*--------------------------------------------------------------------------
+public class Converter {
+  public static float mpgToKPM(final float mpg) {
+    return (float) Math.round(100 * mpg * 1.609344 / 4.54609188) / 100;    
+  }
+}
+----------------------------------------------------------------------------
 import org.apache.commons.math3.util.Precision;
 public class Converter {
   public static float mpgToKPM(final float mpg) {
@@ -21,7 +37,7 @@ public class Converter {
     return Precision.round(result,2);
   }
 }
-/*----------------------------------------------------------------------------
+----------------------------------------------------------------------------
 import java.math.BigDecimal;
 
 public class Converter {
