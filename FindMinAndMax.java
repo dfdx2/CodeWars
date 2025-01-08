@@ -4,7 +4,22 @@ Implement a function that returns the minimal and the maximal
 value of a list (in this order).
 
 */
-
+import java.util.List;
+class FindMinAndMax {
+  static int[] getMinMax(List<Integer> list) {
+    int[] result = {Integer.MAX_VALUE, Integer.MIN_VALUE};
+    for (int i = 0; i < list.size(); i++) {
+      if (list.get(i) < result[0]) {
+        result[0] = list.get(i);
+      }
+      if (list.get(i) > result[1]) {
+        result[1] = list.get(i);
+      } 
+    }
+    return result;
+  }
+}
+/*----------------------------------------------------------------------
 import java.util.Collections;
 import java.util.List;
 
@@ -17,7 +32,7 @@ class MinMax {
     return result;
   }
 }
-/*-------------------------------------------------------------------------
+-------------------------------------------------------------------------
 
 import java.util.List;
 
