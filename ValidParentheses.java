@@ -21,7 +21,27 @@ paste the parentheses into the code editor, and let the code highlighting
 show you!
 
 */
+import java.util.*;
+public class ValidParentheses {
+  
+  public static boolean validParentheses(String parenStr) {
+    Stack<Character> map = new Stack<>();
+    for (char ch : parenStr.toCharArray()) {
+      if (ch == '(') {
+        map.push(ch);
+      }
+      else if (ch == ')' && map.isEmpty() || map.peek() != '(') {
+        return false;
+      }
+      else {
+        map.pop();
+      }
+    }
+    return map.isEmpty();
+  }
+}
 
+/*--------------------------------------------------------------------
 public class Kata {
   
   public static boolean validParentheses(String parenStr) {
@@ -53,7 +73,7 @@ public class Kata {
     return (left == right);
   }
 }
-/*------------------------------------------------------------------------
+------------------------------------------------------------------------
 interface Kata {
   static boolean validParentheses(String p) {
     return p.chars().reduce(0, (s, c) -> s < 0 ? s : c == '(' ? ++s : --s) == 0;
