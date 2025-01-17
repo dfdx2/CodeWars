@@ -25,7 +25,18 @@ Examples
 Good luck! Hope you enjoy it
 
 */
-
+import java.util.Arrays;
+public class OrderingTheWords {
+  public String orderWord(String s){
+    if (s == null || s.length() < 1) {
+      return "Invalid String!";
+    }
+    char[] a = s.toCharArray();
+    Arrays.sort(a);
+    return String.valueOf(a);
+  }
+}
+/*-----------------------------------------------------------------------------------
 import java.util.Arrays;
 public class Ordering {
   public String orderWord(String s){
@@ -42,7 +53,7 @@ public class Ordering {
     return String.valueOf(x);
   }
 }
-/*--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 public class Ordering {
   public String orderWord(String s){
     //your great code here:
