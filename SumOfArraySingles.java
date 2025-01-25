@@ -18,6 +18,47 @@ Sum of prime-indexed elements
 Sum of integer combinations
 
 */
+import java.util.*;
+class SumOfArraySingles{
+    public static int repeats(int [] arr){
+      Set<Integer> map = new HashSet<>();
+      int result = 0;
+      for (int num : arr) {
+        if (map.contains(num)) {
+          result -= num;
+        }
+        else {
+          result += num;
+          map.add(num);
+        }
+      }
+      return result;
+    }
+}
+/*-------------------------------------------------------------------
+import java.util.*;
+class Solution{
+    public static int repeats(int [] arr){
+      Map<Integer, Integer> map = new HashMap<>();
+      for (int i = 0; i < arr.length; i++) {
+        if (!map.containsKey(arr[i])) {
+          map.put(arr[i], 1);
+        }
+        else {
+          int total = map.get(arr[i]);
+          map.put(arr[i], total + 1);
+        }
+      }
+      int result = 0;
+      for (int i = 0; i < arr.length; i++) {
+        if (map.get(arr[i]) == 1) {
+          result += arr[i];
+        }
+      }
+      return result;
+    }
+}
+--------------------------------------------------------------------
 import java.util.Arrays;
 class Solution{
     public static int repeats(int [] arr){
@@ -39,7 +80,7 @@ class Solution{
       return result;
     }
 }
-/*------------------------------------------------------------------------
+------------------------------------------------------------------------
 import java.util.stream.IntStream;
 
 public class Solution {
