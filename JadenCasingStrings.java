@@ -1,4 +1,4 @@
-/*
+/* 7KYU CodeWars Jaden Casing Strings
 Jaden Smith, the son of Will Smith, is the star of films such as The Karate Kid (2010) 
 and After Earth (2013). Jaden is also known for some of his philosophy that he 
 delivers via Twitter. When writing on Twitter, he is known for almost always 
@@ -16,6 +16,25 @@ Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
 
 Note that the Java version expects a return value of null for an empty string or null.
 */
+public class JadenCasingStrings {
+	public String toJadenCase(String phrase) {
+		if (phrase == null || phrase.length() < 1) {
+      return null;
+    }
+    String[] result = phrase.split(" ");
+    StringBuilder sb = new StringBuilder();
+    for (String x : result) {
+      char ch = x.charAt(0);
+      ch = Character.toUpperCase(ch);
+      sb.append(ch);
+      x = x.substring(1, x.length());
+      sb.append(x);
+      sb.append(" ");
+    }
+    return sb.toString().trim();
+	}
+}
+/*-------------------------------------------------------------------
 public class JadenCase {
 
 	public String toJadenCase(String phrase) {
@@ -31,7 +50,7 @@ public class JadenCase {
     return new String(result);
 	}
 }
-/*----------------------------------------------------------------------
+----------------------------------------------------------------------
 
 public class JadenCase {
 
