@@ -12,6 +12,28 @@ Task
 Fix the bug so we can all go home early.
 
 */
+public class GetFullName {
+
+  private String firstName;
+  private String lastName;
+  
+  public Dinglemouse(String firstName, String lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+  
+  public String getFullName() { 
+    if (firstName.length() < 1 && lastName.length() > 1) {
+      firstName = "";
+    }
+    if (lastName.length() < 1 && firstName.length() > 1) {
+      lastName = "";
+    }
+    return firstName.length() > 1 && lastName.length() > 1 ? firstName + " " + lastName : firstName.length() < 1 ? lastName : lastName.length() < 1 ? firstName : firstName + " " + lastName;
+  }
+  
+}
+/*------------------------------------------------------------------
 public class Dinglemouse {
 
     private String firstName;
@@ -34,7 +56,7 @@ public class Dinglemouse {
       }
     }
 }
-/*--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 public class Dinglemouse {
 
   private final String firstName;
