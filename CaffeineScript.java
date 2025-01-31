@@ -17,7 +17,12 @@ Examples
 12  -->  "CoffeeScript"
 
 */
-
+public class CaffeineScript {
+  public static String caffeineBuzz(int n){
+    return n % 12 == 0 ? "CoffeeScript" : n % 3 == 0 && n % 2 == 0 ? "JavaScript" : n % 4 == 0 ? "CoffeeScript" : n % 3 == 0 ? "Java" : "mocha_missing!";
+  }
+}
+/*---------------------------------------------------------------------------
 public class CaffeineBuzz {
   public static String caffeineBuzz(int n){
     String m = "mocha_missing!";
@@ -28,7 +33,7 @@ public class CaffeineBuzz {
     return (n % 3 == 0 && n % 4 == 0 && n % 2 == 0) ? cs : (n % 3 == 0 && n % 2 == 0) ? js : (n % 4 == 0 && n % 2 == 0) ? cs : (n % 3 == 0) ? j : m;
   }
 }
-/*------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 public class CaffeineBuzz {
   public static String caffeineBuzz(int n){
   String message = "mocha_missing!";
