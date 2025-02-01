@@ -16,7 +16,30 @@ Example
 "ABBA" -> 2 # 'A' and 'B' each occur twice
 
 */
-
+import java.util.*;
+public class CountingDuplicates {
+  public static int duplicateCount(String text) {
+    int result = 0;
+    Map<Character, Integer> map = new HashMap<>();
+    text = text.toLowerCase();
+    for (int i = 0; i < text.length(); i++) {
+      if (!map.containsKey(text.charAt(i))) {
+        map.put(text.charAt(i), 1);
+      }
+      else {
+        int total = map.get(text.charAt(i));
+        map.put(text.charAt(i), total + 1);
+      }
+    }
+    for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+      if (entry.getValue() > 1) {
+        result++;
+      }
+    }
+    return result;
+  }
+}
+/*-----------------------------------------------------------------
 import java.util.*;
 public class CountingDuplicates {
   public static int duplicateCount(String text) {
@@ -44,7 +67,7 @@ public class CountingDuplicates {
     return count;
   }
 }
-/*----------------------------------------------------------------------------
+----------------------------------------------------------------------------
 public class CountingDuplicates {
   public static int duplicateCount(String text) {
     int ans = 0;
