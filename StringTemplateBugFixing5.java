@@ -3,7 +3,23 @@
 Oh no! Timmy hasn't followed instructions very carefully and forgot how to use the new String Template feature, Help Timmy with his string template so it works as he expects!
 
 */
-
+public class StringTemplateBugFixing5 {
+  public static String buildString(String... args) {
+    StringBuilder sb = new StringBuilder();
+    for (String a : args) {
+      if (a.length() < 1) {
+        break;
+      }
+      else {
+        sb.append(a);
+        sb.append(", ");
+      }
+    }
+    String result = sb.toString().trim();
+    return result.equals(", ") ? "I like!" : "I like " + result.substring(0, result.length() - 1) + "!";
+  }
+}
+/*------------------------------------------------------------------------
 public class Kata 
 {
     public static String buildString(String... args)
@@ -28,7 +44,7 @@ public class Kata
       }
     }
 }
-/*----------------------------------------------------------------------
+----------------------------------------------------------------------
 public class Kata {
     public static String buildString(String... args) {
       return "I like " + String.join(", ", args) + "!";
