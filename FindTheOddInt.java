@@ -12,7 +12,29 @@ Examples
 [1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
 
 */
-
+import java.util.*;
+public class FindTheOddInt {
+    public static int findIt(int[] a) {
+      Arrays.sort(a);
+      Map<Integer, Integer> map = new HashMap<>();
+      for (int i = 0; i < a.length; i++) {
+        if (!map.containsKey(a[i])) {
+          map.put(a[i], 1);
+        }
+        else {
+          int total = map.get(a[i]);
+          map.put(a[i], total + 1);
+        }
+      }
+      for (int i = 0; i < a.length; i++) {
+        if (map.get(a[i]) % 2 != 0) {
+          return a[i];
+        }
+      }
+      return -1;
+    }
+}
+/*---------------------------------------------------------------------------------
 import java.util.HashMap;
 
 public class FindOdd {
@@ -35,7 +57,7 @@ public class FindOdd {
     return -1;
   }
 }
-/*-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 public class FindOdd {
 	public static int findIt(int[] A) {
   	int xor = 0;
