@@ -15,6 +15,18 @@ Examples
 "Why isn't my code working?"  -->  "W  H  Y  I  S  N  '  T  M  Y  C  O  D  E  W  O  R  K  I  N  G  ?"
 
 */
+public class Solution {
+  public static String VAPORCODE(String s) {
+    s = s.toUpperCase().replaceAll(" ", "");
+    StringBuilder sb = new StringBuilder();
+    for (char ch : s.toCharArray()) {
+      sb.append(ch);
+      sb.append("  ");
+    }
+    return sb.toString().trim();
+  }
+}
+/*---------------------------------------------------------------------------------------------------
 public class VAPORCODE {
   public static String vaporcode(String s) {
     s = s.replaceAll(" ", "");
@@ -26,7 +38,7 @@ public class VAPORCODE {
     return result.substring(0, result.length() - 2);
   }
 }
-/*--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 interface Solution {
   static String vaporcode(String s) {
     return s.replace(" ", "").replace("","  ").toUpperCase().trim();
