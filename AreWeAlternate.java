@@ -13,12 +13,32 @@ isAlt("banana") // true
 Arguments consist of only lowercase letters.
 
 */
+import java.util.*;
+class AreWeAlternate {
+    public static boolean isAlt(String word) {
+      Set<Character> map = new HashSet<>();
+      map.add('a');
+      map.add('e');
+      map.add('i');
+      map.add('o');
+      map.add('u');
+      for (int i = 1; i < word.length(); i++) {
+        char cd = word.charAt(i - 1);
+        char ch = word.charAt(i);
+        if (!map.contains(ch) && !map.contains(cd) || map.contains(ch) && map.contains(cd)) {
+          return false;
+        }
+      }
+      return true;
+    }
+}
+/*----------------------------------------------------------------------
 public class AreWeAlternate {
     public static boolean isAlt(String word) {
       return word.matches("[aeiou]?([^aeiou][aeiou])*[^aeiou]?");
     }
 }
-/*-------------------------------------------------------------------------
+-------------------------------------------------------------------------
 class Solution {
     private static String vowels = "aeiou";
 
