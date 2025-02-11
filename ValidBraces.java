@@ -23,6 +23,32 @@ Examples
 
 */
 import java.util.*;
+public class ValidBraces {
+  public boolean isValid(String braces) {
+    Stack<Character> map = new Stack<>();
+    for (char ch : braces.toCharArray()) {
+            if (ch == '(' || ch == '{' || ch == '[') {
+                map.push(ch);
+            }
+            else if (ch == ')' && !map.isEmpty() && map.peek() == '(') {
+                map.pop();
+            }
+            else if (ch == '}' && !map.isEmpty() && map.peek() == '{') {
+                map.pop();
+            }
+            else if (ch == ']' && !map.isEmpty() && map.peek() == '[') {
+                map.pop();
+            }
+            else {
+                return false;
+            }
+        }
+    return map.isEmpty();
+  }
+
+}
+/*---------------------------------------------------------------------
+import java.util.*;
 public class BraceChecker {
 
   public boolean isValid(String braces) {
@@ -51,7 +77,7 @@ public class BraceChecker {
   }
 
 }
-/*--------------------------------------------------------------------
+--------------------------------------------------------------------
 import java.util.Stack;
 
 public class BraceChecker {
