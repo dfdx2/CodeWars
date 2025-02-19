@@ -5,7 +5,19 @@ Oh no, Timmy's created an infinite loop! Help Timmy find
 and fix the bug in his unfinished for loop!
 
 */
+import java.util.*;
+class UnfinishedLoopBugFixing {
+    public static List<Integer> CreateList(int number) {
+        List<Integer> list = new ArrayList<>(number);
 
+        for (int count = 1; count <= number; count++) {
+            list.add(count);
+        }
+        return list;
+    }
+}
+
+/*-------------------------------------------------------------
 import java.util.*;
 
 class Kata {
@@ -21,7 +33,7 @@ class Kata {
     return list;
   }
 }
-/*--------------------------------------------------------------
+--------------------------------------------------------------
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
