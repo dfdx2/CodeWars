@@ -12,7 +12,21 @@ Kata.capMe(new String[] {"KARLY", "DANIEL", "KELSEY"}) //
 returns new String[] {"Karly", "Daniel", "Kelsey"}
 
 */
-
+public class NameArrayCapping {
+  public static String[] capMe(String[] strings) {
+    int i = 0;
+    for (String j : strings) {
+      j = j.toLowerCase();
+      char ch = j.charAt(0);
+      ch = Character.toUpperCase(ch);
+      j = ch + j.substring(1, j.length());
+      strings[i] = j;
+      i++;
+    }
+    return strings;
+  }
+}
+/*----------------------------------------------------------------------------
 public class Kata {
     public static String[] capMe(String[] strings) {
       String[] result = new String[strings.length];
@@ -27,7 +41,7 @@ public class Kata {
       return result;
     }
 }
-/*----------------------------------------------------------------------------
+----------------------------------------------------------------------------
 public class Kata {
   public static String[] capMe(String[] strings) {
     for (int i = 0; i < strings.length; i++) {
