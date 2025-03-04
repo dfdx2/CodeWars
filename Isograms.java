@@ -14,7 +14,23 @@ isIsogram "moose" = false
 isIsogram "aba" = false
 
 */
-
+import java.util.*;
+public class Isograms {
+    public static boolean  isIsogram(String str) {
+      Set<Character> map = new HashSet<>();
+      str = str.toLowerCase();
+      for (char ch : str.toCharArray()) {
+        if (!Character.isLetter(ch) || map.contains(ch)) {
+          return false;
+        }
+        else {
+          map.add(ch);
+        }
+      }
+      return true;
+    } 
+}
+/*------------------------------------------------------------------------
 import java.util.Arrays;
 public class isogram {
     public static boolean  isIsogram(String str) {
@@ -29,7 +45,7 @@ public class isogram {
        return true;
     } 
 }
-/*---------------------------------------------------------------------------
+---------------------------------------------------------------------------
 public class isogram {
   public static boolean  isIsogram(String str) {
     return str.length() == str.toLowerCase().chars().distinct().count();
