@@ -15,6 +15,32 @@ Examples
 
 */
 import java.lang.StringBuilder;
+class ConvertStringToCamelCase {
+  static String toCamelCase(String s){
+    if (s.length() < 1) {
+      return s;
+    }
+    StringBuilder sb = new StringBuilder();
+    sb.append(s.charAt(0));
+    for (int i = 1; i < s.length(); i++) {
+      if (s.charAt(i) == '_' || s.charAt(i) == '-') {
+        continue;
+      }
+      else if (s.charAt(i - 1) == '_' || s.charAt(i - 1) == '-') {
+        char cd = s.charAt(i);
+        cd = Character.toUpperCase(cd);
+        sb.append(cd);
+      }
+      else {
+        sb.append(s.charAt(i));
+      }
+    }
+    return sb.toString();
+  }
+}
+
+/*---------------------------------------------------------------------------------
+import java.lang.StringBuilder;
 class Solution{
 
   static String toCamelCase(String s){
@@ -32,7 +58,7 @@ class Solution{
     return sb.toString();
   }
 }
-/*--------------------------------------------------------------------------
+--------------------------------------------------------------------------
 import java.util.Arrays;
 
 class Solution{
